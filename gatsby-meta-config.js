@@ -2,7 +2,7 @@ module.exports = {
   title: `FromCoding`,
   description: `From Coding To Everyone Else`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
-  siteUrl: `https://www.fromcoding.com`,
+  siteUrl: `https://yjksw.github.io`,
   ogImage: `/og-image.png`, // Path to your in the 'static' folder
   comments: {
     utterances: {
