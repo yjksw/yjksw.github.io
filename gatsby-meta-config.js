@@ -3,7 +3,7 @@ module.exports = {
   description: `From Coding To Everyone Else`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
   siteUrl: `https://yjksw.github.io`,
-  ogImage: `/og-image.png`, // Path to your in the 'static' folder
+  ogImage: `/og-image.gif`, // Path to your in the 'static' folder
   comments: {
     utterances: {
       repo: `yjksw/yjksw.github.io`, // `zoomkoding/zoomkoding-gatsby-blog`,
