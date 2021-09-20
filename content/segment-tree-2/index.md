@@ -1,10 +1,10 @@
 ---
 emoji: 🤹‍♀️
-title: [알고리즘] 세그먼트 트리를 활용한 히스토그램 문제 풀이_2
+title: 세그먼트 트리를 활용한 히스토그램 문제 풀이_2
 date: '2020-09-10 23:00:00'
 author: 코다
-tags: Algorithm
-categories: Algorithm
+tags: 알고리즘
+categories: 알고리즘
 ---
 
 앞서 [히스토그램 문제](https://www.acmicpc.net/problem/6549)에 대한 접근 방법을 간단하게 설명하고 세그먼트 트리를 히스토그램에 맞추어서 설명했다. 이번 글에서는 구체적으로 어떻게 세그먼트 트리를 구현하여 히스토그램 문제를 푸는데까지 이어지는지 다루어 보도록 하겠다. 
@@ -12,7 +12,7 @@ categories: Algorithm
 이 문제는 레벨이 높은 문제이긴 하지만 아이디어 자체가 굉장히 어렵거나 하진 않다. 다만 시간 복잡도 측면에서 효율적으로 접근하기 위해 세그먼트 트리를 활용하는게 좀 낯설어서 어려웠던 것 같다. 
 
 
-###### Segment Tree 구현
+### Segment Tree 구현
 
 Segment Tree를 구현할 때 배열을 사용해서 구현하도록 할텐데 segment tree는 다음과 같은 성질을 가지고 있다. 
 
@@ -67,7 +67,7 @@ static void init(int start, int end, int index){
 
 
 
-###### Segment Tree 탐색
+### Segment Tree 탐색
 
 Segment Tree를 생성했으면 이제 각 구간을 순회하며 해당 구간의 최소값을 구해야 한다. 일반적인 세그먼트 트리의 예시에서 구간합을 구할 경우 각 segment tree에 있는 값의 합을 구하면 되지만, 히스토그램 문제에서는 최소값을 찾아야 하니, 한번 더 참조해야 하는 부분이 있다. 
 
@@ -119,7 +119,7 @@ static int findMin(int start, int last, int left, int right, int index){
 
 
 
-###### 히스토그램 풀이
+### 히스토그램 풀이
 
 위의 세그먼트 트리 생성과 탐색 방법을 사용해서 최소값을 찾는 부분을 구현했다면 이제 답을 구현하도록 해보자. 앞의 포스트에서 언급했던 방법은 아래이다. 
 
@@ -160,10 +160,6 @@ static void solve(int startIndex, int lastIndex){
   }
 }
 ```
-
-
-
-
 
 
 
