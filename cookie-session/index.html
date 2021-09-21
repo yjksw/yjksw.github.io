@@ -99,7 +99,7 @@ void function() {
 
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
-    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="display:flex;flex-direction:column;min-height:100vh"><main><header class="post-header-wrapper"><div class="post-header"><div class="emoji">🖥</div><div class="info"><div class="categories"><a class="category" href="/posts/웹">웹</a><a class="category" href="/posts/스프링부트">스프링부트</a></div></div><h1 class="title">쿠키와 세션 알아보기</h1><div class="info">posted by <strong>코다</strong> · <!-- -->September 04, 2021</div></div></header><div class="post-content-wrapper"><div class="post-content"><div class="markdown"><h1 id="intro" style="position:relative;"><a href="#intro" aria-label="intro permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>INTRO</h1>
+    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="display:flex;flex-direction:column;min-height:100vh"><main><header class="post-header-wrapper"><div class="post-header"><div class="emoji">🖥</div><div class="info"><div class="categories"><a class="category" href="/posts/웹">웹</a><a class="category" href="/posts/스프링부트">스프링부트</a></div></div><h1 class="title">쿠키와 세션 알아보기</h1><div class="info">posted by <strong>코다</strong> · <!-- -->September 04, 2021</div></div></header><div class="post-content-wrapper"><div class="post-content"><div class="markdown"><h2 id="intro" style="position:relative;"><a href="#intro" aria-label="intro permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>INTRO</h2>
 <ul>
 <li>HTTP는 Stateless 무상태성을 가지고 있다. 따라서 데이터를 상태로 저장하지 않는다.</li>
 <li>HTTP가 무성태성이기 때문에 클라이언트에 대한 데이터를 유지하고 싶을 때는 쿠키 또는 세션을 이용한다. (이전에 요청을 보낸 동일한 사용자임을 확인하고 싶은 경우 등등)</li>
@@ -108,7 +108,7 @@ void function() {
 </ul>
 <br>
 <br>
-<h1 id="cookie" style="position:relative;"><a href="#cookie" aria-label="cookie permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cookie</h1>
+<h2 id="cookie" style="position:relative;"><a href="#cookie" aria-label="cookie permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cookie</h2>
 <ul>
 <li>쿠키는 클라이언트가 정보를 가지고 브라우저에서 해당 정보를 저장한다. </li>
 <li>
@@ -132,7 +132,7 @@ void function() {
 <li>다른 사람이 쉽게 열람할 수 있다. 따라서 민감한 정보를 저장할 수 없다. </li>
 </ul>
 <br>
-<h2 id="쿠키-설정하기" style="position:relative;"><a href="#%EC%BF%A0%ED%82%A4-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0" aria-label="쿠키 설정하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>쿠키 설정하기</h2>
+<h3 id="쿠키-설정하기" style="position:relative;"><a href="#%EC%BF%A0%ED%82%A4-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0" aria-label="쿠키 설정하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>쿠키 설정하기</h3>
 <ul>
 <li>
 <p>쿠키를 설정하고 싶을때는 아래와 같이 서버에서 <code class="language-text">Set-Cookie</code> 헤더로 값을 보내면 된다. </p>
@@ -156,7 +156,7 @@ Cookie: cookieValue=thisIsCookie!!!</code></pre></div>
 </ul>
 <br>
 <br>
-<h1 id="session" style="position:relative;"><a href="#session" aria-label="session permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Session</h1>
+<h2 id="session" style="position:relative;"><a href="#session" aria-label="session permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Session</h2>
 <ul>
 <li>세션은 서버의 메모리에서 데이터를 관리한다. </li>
 <li>외부에 공개하기 위험한 정보를 서버의 메모리에 안전하게 저장할 수 있다. </li>
@@ -168,7 +168,7 @@ Cookie: cookieValue=thisIsCookie!!!</code></pre></div>
 <li>서버의 메모리에서 지나치게 많은 세션 데이터를 관리하기 힘들 수 있다. </li>
 </ul>
 <br>
-<h2 id="세션-설정하기" style="position:relative;"><a href="#%EC%84%B8%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0" aria-label="세션 설정하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>세션 설정하기</h2>
+<h3 id="세션-설정하기" style="position:relative;"><a href="#%EC%84%B8%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0" aria-label="세션 설정하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>세션 설정하기</h3>
 <ul>
 <li>서버에서 세션을 설정할 때 <code class="language-text">HttpServletRequest</code>의 <code class="language-text">getSession()</code>을 호출하면 해당 request의 세션을 생성해서 반환한다. 아래에 세션 생성 및 반환 시점에 대해서 추가로 설명한다. </li>
 <li>반환된 세션에 <code class="language-text">setAttribute()</code>를 통해 속성값을 지정한다. 해당 값이 세션에 저장되는 데이터 정보이다. </li>
@@ -217,7 +217,7 @@ Cookie: JSESSIONID=2cfd4acb-0b67-4ce9-90c4-97ee3242e51b</code></pre></div>
 </li>
 </ul>
 <br>
-<h2 id="세션은-언제-생성될까-" style="position:relative;"><a href="#%EC%84%B8%EC%85%98%EC%9D%80-%EC%96%B8%EC%A0%9C-%EC%83%9D%EC%84%B1%EB%90%A0%EA%B9%8C-" aria-label="세션은 언제 생성될까  permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>세션은 언제 생성될까 ?</h2>
+<h3 id="세션은-언제-생성될까-" style="position:relative;"><a href="#%EC%84%B8%EC%85%98%EC%9D%80-%EC%96%B8%EC%A0%9C-%EC%83%9D%EC%84%B1%EB%90%A0%EA%B9%8C-" aria-label="세션은 언제 생성될까  permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>세션은 언제 생성될까 ?</h3>
 <ul>
 <li>이번에 직접 HTTP 서버를 구현하는 프로젝트를 하면서 세션을 구현하면서 의문이 들었다. </li>
 <li><code class="language-text">request.getSession()</code>을 하면 항상 세션을 반환하는데 그럼 모든 HttpRequest에 대한 세션이 생성되는 것인지 궁금했다. </li>
@@ -244,7 +244,7 @@ Cookie: JSESSIONID=2cfd4acb-0b67-4ce9-90c4-97ee3242e51b</code></pre></div>
 </ul>
 <br>
 <br>
-<h1 id="언제-무엇을-사용하는-것이-좋을까" style="position:relative;"><a href="#%EC%96%B8%EC%A0%9C-%EB%AC%B4%EC%97%87%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C" aria-label="언제 무엇을 사용하는 것이 좋을까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>언제 무엇을 사용하는 것이 좋을까?</h1>
+<h2 id="언제-무엇을-사용하는-것이-좋을까" style="position:relative;"><a href="#%EC%96%B8%EC%A0%9C-%EB%AC%B4%EC%97%87%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C" aria-label="언제 무엇을 사용하는 것이 좋을까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>언제 무엇을 사용하는 것이 좋을까?</h2>
 <ul>
 <li>언제 세션을 사용하고 언제 쿠키를 사용하는지에 대해서는 물론 답이 없다. </li>
 <li>웹을 구현하면서 워낙 많은 경우가 있기 때문에 각각 다른 이유들을 비교해서 더 적합한 것을 선택하면 된다. </li>
@@ -252,7 +252,7 @@ Cookie: JSESSIONID=2cfd4acb-0b67-4ce9-90c4-97ee3242e51b</code></pre></div>
 </ul>
 <br>
 <br>
-<h1 id="번외-static-code-classlanguage-texthttpsessionscode-클래스-테스트하기-code-classlanguage-textmockstaticltcode" style="position:relative;"><a href="#%EB%B2%88%EC%99%B8-static-code-classlanguage-texthttpsessionscode-%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0-code-classlanguage-textmockstaticltcode" aria-label="번외 static code classlanguage texthttpsessionscode 클래스 테스트하기 code classlanguage textmockstaticltcode permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>번외) static <code class="language-text">HttpSessions</code> 클래스 테스트하기 <code class="language-text">MockStatic&lt;></code></h1>
+<h2 id="번외-static-code-classlanguage-texthttpsessionscode-클래스-테스트하기-code-classlanguage-textmockstaticltcode" style="position:relative;"><a href="#%EB%B2%88%EC%99%B8-static-code-classlanguage-texthttpsessionscode-%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0-code-classlanguage-textmockstaticltcode" aria-label="번외 static code classlanguage texthttpsessionscode 클래스 테스트하기 code classlanguage textmockstaticltcode permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>번외) static <code class="language-text">HttpSessions</code> 클래스 테스트하기 <code class="language-text">MockStatic&lt;></code></h2>
 <ul>
 <li>직접 Http 서버를 구현하면서 세션에 고유한 id를 부여하기 위해 <code class="language-text">UUID.randomUUID()</code>를 통해서 구현했다. </li>
 <li><code class="language-text">HttpSession</code> 을 관리하는 <code class="language-text">HttpSessions</code>는 <code class="language-text">static</code>으로 관리하고 있고, 해당 클래스에서 <code class="language-text">UUID.randomUUID()</code>를 사용해 새로운 HttpSession을 생성하고 아이디를 부여해 리턴 및 저장한다. </li>
@@ -276,23 +276,24 @@ Cookie: JSESSIONID=2cfd4acb-0b67-4ce9-90c4-97ee3242e51b</code></pre></div>
 </ul>
 <div class="table-of-contents">
 <ul>
+<li><a href="#intro">INTRO</a></li>
 <li>
+<p><a href="#cookie">Cookie</a></p>
 <ul>
 <li><a href="#%EC%BF%A0%ED%82%A4%EC%9D%98-%EB%8B%A8%EC%A0%90">쿠키의 단점</a></li>
+<li><a href="#%EC%BF%A0%ED%82%A4-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">쿠키 설정하기</a></li>
 </ul>
 </li>
 <li>
-<p><a href="#%EC%BF%A0%ED%82%A4-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">쿠키 설정하기</a></p>
+<p><a href="#session">Session</a></p>
 <ul>
 <li><a href="#%EC%84%B8%EC%85%98%EC%9D%98-%EB%8B%A8%EC%A0%90">세션의 단점</a></li>
-</ul>
-</li>
 <li><a href="#%EC%84%B8%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">세션 설정하기</a></li>
-<li>
-<p><a href="#%EC%84%B8%EC%85%98%EC%9D%80-%EC%96%B8%EC%A0%9C-%EC%83%9D%EC%84%B1%EB%90%A0%EA%B9%8C-">세션은 언제 생성될까 ?</a></p>
-<ul>
+<li><a href="#%EC%84%B8%EC%85%98%EC%9D%80-%EC%96%B8%EC%A0%9C-%EC%83%9D%EC%84%B1%EB%90%A0%EA%B9%8C-">세션은 언제 생성될까 ?</a></li>
 <li><a href="#%EC%A3%BC%EC%9D%98%ED%95%A0-%EC%A0%90">주의할 점</a></li>
 </ul>
 </li>
+<li><a href="#%EC%96%B8%EC%A0%9C-%EB%AC%B4%EC%97%87%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C">언제 무엇을 사용하는 것이 좋을까?</a></li>
+<li><a href="#%EB%B2%88%EC%99%B8-static-httpsessions-%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0-mockstatic">번외) static <code class="language-text">HttpSessions</code> 클래스 테스트하기 <code class="language-text">MockStatic&lt;></code></a></li>
 </ul>
 </div></div></div></div><div class="post-cards-adjacent-wrapper"><div class="post-cards-adjacent"><div class="post-card-adjacent-wrapper"><a class="post-card prev" href="/cdn/"><div class="direction">이전 글</div><div class="title">CDN 알아보기</div></a></div><div class="post-card-adjacent-wrapper"><a class="post-card next" href="/db-replication/"><div class="direction">다음 글</div><div class="title">DB 리플리케이션 적용하기</div></a></div></div></div><div class="utterances"></div></main><footer class="page-footer-wrapper"><p class="page-footer">© <!-- -->2021<!-- --> <a href="https://github.com/yjksw">김윤정</a> powered by<a href="https://github.com/zoomKoding/zoomkoding-gatsby-blog"> zoomkoding-gatsby-blog</a></p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/cookie-session/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-384ea82b9c97dbd7ee60.js"],"app":["/app-bfd5d3856e3e8a002bc1.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-241020a1cf7d0f317bbe.js"],"component---src-pages-404-js":["/component---src-pages-404-js-18966798326ae6e5a169.js"],"component---src-pages-about-js":["/component---src-pages-about-js-d4a17c8107ec4d45892f.js"],"component---src-pages-index-js":["/component---src-pages-index-js-075b56c20bb45784e0f2.js"],"component---src-templates-blog-template-js":["/component---src-templates-blog-template-js-5ea40d560b401e429c55.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-d01b478dab935d07b01d.js"]};/*]]>*/</script><script src="/polyfill-384ea82b9c97dbd7ee60.js" nomodule=""></script><script src="/component---src-templates-blog-template-js-5ea40d560b401e429c55.js" async=""></script><script src="/f9d3028dbef90a6e9b8db85387d63dd9f4edf538-955fd69ee7cd4ba7dbd2.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/app-bfd5d3856e3e8a002bc1.js" async=""></script><script src="/framework-81279cacaab4bdba7685.js" async=""></script><script src="/webpack-runtime-44454fba43e8e8c75935.js" async=""></script></body></html>
