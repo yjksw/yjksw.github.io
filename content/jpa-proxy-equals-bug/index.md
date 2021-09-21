@@ -64,6 +64,7 @@ categories: JPA
 
 2. `Likes`와 `Like` - Post 엔티티 하위의 Embedded 게시물 Like collection 포장객체
     - **참고**: 설명하고자 하는 부분과 깊게 연관된 핵심 Entity는 아니지만  상황 설명을 위해 간단히 프로퍼티만 소개한다. 
+
     ```java
     @Embeddable // Post 엔티티 안에 Embedded 되어 있음 
     public class Likes {
@@ -86,7 +87,9 @@ categories: JPA
 
         //...getter 및 불필요한 비지니스 로직 생략
     }
+    ```
 
+    ```java
     @Entity
     public class Like {
 
@@ -107,6 +110,7 @@ categories: JPA
         //...getter 및 불필요한 비지니스 로직 생략
     }    
     ```
+
     <br>
 
 3. `User` - 어플리케이션 사용자 (게시물 좋아요, 유저간 팔로우 팔로잉 등의 행위를 함)
@@ -161,11 +165,13 @@ categories: JPA
         }
     }
     ```
+ 
     <br>
 
 4. `Followings`와 `Follow`
     - `Followings` - 해당 `User`의 팔로워리스트를 저장하는 포장객체 (`Followers`도 동일한 형태로 되어 있다.)
     - `Follow` - Followers, Followings 리스트에 담겨 있는 VO 엔티티로 source, target 유저간의 팔로우 관계를 나타내는 엔티티
+  
     ```java
     @Embeddable
     public class Followings {
@@ -190,7 +196,9 @@ categories: JPA
 
         //...일부 비지니스 로직 생략
     }
+    ```
 
+    ```java
     @Entity
     @Table(
         uniqueConstraints = {
@@ -223,6 +231,7 @@ categories: JPA
         //equals & hashcode는 VO로 취급되어 필드가 같은지 확인 (즉, 유저가 같은 유저인지 확인)
     }
     ```
+    
     <br>
 
 5. `PostRepository` 게시물 좋아요 리스트 조회 쿼리
