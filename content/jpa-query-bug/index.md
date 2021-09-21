@@ -3,8 +3,8 @@ emoji: 🚀
 title: JPA N+1 문제 및 해결방법 알아보기
 date: '2021-08-26 23:00:00'
 author: 코다
-tags: JPA 스프링
-categories: JPA 스프링
+tags: JPA
+categories: JPA
 ---
 
 ## INTRO 
