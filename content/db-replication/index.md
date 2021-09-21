@@ -7,7 +7,7 @@ tags: 데이터베이스 인프라
 categories: 데이터베이스 인프라
 ---
 
-# INTRO
+## INTRO
 - DB Replication을 MySQL 공식 홈페이지에서 찾아보면 다음과 같이 말한다.    
   > Replication enables data from one MySQL databse server (known as a source) to be copied to one or more MySQL database servers (know as replicas) 
   출처 : [링크](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
@@ -19,7 +19,7 @@ categories: 데이터베이스 인프라
 <br>
 <br>
 
-# MySQL replication 장점
+## MySQL replication 장점
 공식 홈페이지에 나와있는 장점 4가지는 다음과 같다. 
 1. Scale-out solutions
    - 다수의 replicas를 두고 load를 분산해서 퍼포먼스를 높이는 장점이 있다. 
@@ -39,7 +39,7 @@ categories: 데이터베이스 인프라
 <br>
 <br>   
 
-# Replication 적용하기 
+## Replication 적용하기 
 
 ### 적용이유 
 - 현재 진행중인 [프로젝트](pick-git.com)에 DB replication을 적용하기로 했다. 그 이유는 프로젝트가 SNS의 일종이므로 유저에 의한 페이지 이동이 잦고 그것에 따른 조회 쿼리가 매우 많기 때문이다. 따라서 Master server 1개, slave server 2개를 두어 조회 쿼리를 slave 서버 2개로 분산했다. 
@@ -52,7 +52,7 @@ categories: 데이터베이스 인프라
 
 <br>
 
-## 적용하기 
+### 적용하기 
 DB replication 적용에는 크게 3가지 단계가 있다. 다음 [레포지토리](https://github.com/2021-pick-git/db-replication-learning-test)에 가면 적용을 위한 replication 학습테스트 코드를 확인할 수 있다. 
 
 1. Remote 서버에 MariaDB 로컬 설치 및 기본 설정
@@ -61,7 +61,7 @@ DB replication 적용에는 크게 3가지 단계가 있다. 다음 [레포지�
 
 <br>
 
-### 1-1) MariaDB 설치 및 기본 설정 
+#### 1-1) MariaDB 설치 및 기본 설정 
 - 우분투에 MariaDB를 설치한다.  
   ```shell
   $ sudo apt update
@@ -80,7 +80,7 @@ DB replication 적용에는 크게 3가지 단계가 있다. 다음 [레포지�
 
 <br>
 
-### 2-1) Master DB 설정 
+#### 2-1) Master DB 설정 
 - 해당 계정에 권한을 부여한다. (master)
   ```mysql
   $ grant all privileges on {database}.* to 'replication'@'%'; 
@@ -126,7 +126,7 @@ DB replication 적용에는 크게 3가지 단계가 있다. 다음 [레포지�
 
 <br>
 
-### 2-2) Slave DB 설정 
+#### 2-2) Slave DB 설정 
 - Master DB 과 동일하게 다음 설정경로로 가서 `server-id`를 수정한다. 
     - 현재 master의 `server-id`가 1이므로 `slave1`은 2, `slave2`는 3으로 설정해주었다. 
     ```shell
@@ -151,7 +151,7 @@ DB replication 적용에는 크게 3가지 단계가 있다. 다음 [레포지�
 
 <br>
 
-### 3-1) Springboot DB configuration 설정 - datasource 정보 기입
+#### 3-1) Springboot DB configuration 설정 - datasource 정보 기입
 - DB 서버에서 하는 설정은 Master DB에 쓰기 및 업데이트 처리시 Slave DB에 적용이 되도록 하는 연결 설정이다. 
 - 이외의 datasource를 선택하고, 설정에 맞게 connection을 만들고, 실제 쿼리를 처리하도록 하는 것은 어플리케이션 코드에서 구현을 해야한다. 
   <p align="center"><img width=600 src="https://user-images.githubusercontent.com/63405904/132996798-4b1a4c22-484c-415b-acdb-d599cdb0fcc2.png"><br>이전 yml datasource 설정</p>
@@ -191,7 +191,7 @@ DB replication 적용에는 크게 3가지 단계가 있다. 다음 [레포지�
     ```
 <br>
 
-### 3-2) Springboot DB configuration 구현
+#### 3-2) Springboot DB configuration 구현
 - 위 입력한 datasource는 하나가 아니기 때문에 자동으로 연결이 안되고 상황에 따라 다른 datasource가 연결이 된다. 해당 작업을 수동으로 해야하기 때문에 몇가지 직접 설정해야하는 것들이 있다.
    
 - 1) 첫번째는 적합한 상황에 다른 datasource를 제공하는 설정이다. 하나 이상의 datasource를 생성해 저장한다. 
@@ -346,7 +346,7 @@ public class DataSourceConfiguration {
 <br>
 <br>
 
-# Replication Test 하기
+## Replication Test 하기
 - Member를 입력하고 조회를 여러번 했을 때 의도된 대로 replication이 적용되는지 확인한다. 
 - `@DataJpaTest`로도 진행할 수 있으나, 빈으로 등록된 설정 요소들이 필요하기 때문에 `@SpringBootTest`로 테스트를 진행했다. (@`DataJpaTest`를 진행하면서 해당 configuration만 빈으로 등록하는 방식으로 테스트해도 무방하다.) 
 - datasource를 자동 연결하지 않는 설정 annotation을 class 상단에 추가해야한다. 
@@ -398,7 +398,7 @@ class MemberRepositoryTest {
 <br>
 <br>
 
-# 마주한 이슈
+## 마주한 이슈
 - yml에 properties 입력시 오타 주의 !! (자동완성 안해주기 때문에 접미사 -s 등을 주의해야함)
 - JPA 정보 또한 자동연결할 때 해주는 설정들을 하나씩 다 명시해주어야한다. 
 - 기존에 ddl 전략을 외부에 기입했다면 왜인지 `hbm2ddl.auto=create`로 지정해야 적용이 되었다. 
@@ -439,7 +439,7 @@ class MemberRepositoryTest {
 <br>
 <br>
 
-# 번외) 기존 DB의 데이터 dump 하기 
+## 번외) 기존 DB의 데이터 dump 하기 
 - 기존 DB에 있던 데이터들을 새로 생성한 master db에 옮기기 위해 `mySqldump`를 사용해 마이그레이션을 했다. 
     ```shell
     $ mysqldump -u [사용자 계정] -p [원본 데이터베이스명] > [생성할 백업 파일명].sql #백업 sql 생성 

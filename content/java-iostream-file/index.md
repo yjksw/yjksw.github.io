@@ -7,7 +7,7 @@ tags: 자바
 categories: 자바
 ---
 
-# 자바 I/O 스트림
+## 자바 I/O 스트림
 
 - Stream은 데이터의 연속이다. Sequence of Data
 - 다르게 말하면 **Stream 이란 한쪽으로 흐르는 통로같은 것이다.** 자바에서 Stream이란 한쪽 source에서 destination으로 흐르는 **데이터를 위한 단방향 통로**이다. 자바에서는 여러 매체를 읽거나 쓸 수 있고 각자를 위한 I/O Stream이 구현되어 있다. (disk files, devices, programs, memory arrays)
@@ -19,13 +19,13 @@ categories: 자바
 
 <br>
 
-## 바이트 기반 Stream 
+### 바이트 기반 Stream 
 - 바이트를 기반으로 입출력하는 스트림이다. 
 - FileInputStream(파일), ByteArrayInputStream(메모리), PipeInputStream(프로세스), AudioInputStream(오디오 장치) 등등이 있다. 
 
 <br>
 
-## 보조 Stream
+### 보조 Stream
 - 실제로 데이터를 주고받는 스트림이 아니라, 다른 스트림의 기능을 추가적으로 보조하여 새로운 기능을 수행할 수 있도록 해주는 스트림이다. 
 - 생성시 인자로 `InputStream`, `OutputStream` 등을 받기도 한다. 
 - 몇가지 예시)
@@ -36,7 +36,7 @@ categories: 자바
 
 <br>
 
-## 문자 기반 Stream
+### 문자 기반 Stream
 - Reader, Writer 를 통해서 UTF-8 등등의 인코딩 텍스트를 처리할 수 있다. 
     - 이것은 필터의 일종이다. 
 - 이것을 사용하면 데이터를 byte 단위가 아닌, char 단위로 처리할 수 있다. 
@@ -51,7 +51,7 @@ BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 <br>
 <br>
 
-# InputStream
+## InputStream
 - InputStream 은 *프로그램 입장*에서 데이터를 읽어드리는 것이다. 
     
     <p align="center"><img width=400 src="https://user-images.githubusercontent.com/63405904/130889921-1ef178ae-5fa1-4597-a173-ffa3165cf897.png"><br>이미지 출처: 오라클 docs</p>
@@ -59,14 +59,14 @@ BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 - `read()`메소드를 적절하게 구현하여 사용허던지, 이미 구현한 하위 기타 InputStream을 활용하면 된다. 
 - 기본적으로 바이트를 읽어드린다. `read(byte[], int off, int len)`, `read(byte[])`
 
-### 바이트를 읽는다는데 왜 반환값은 int일까?
+#### 바이트를 읽는다는데 왜 반환값은 int일까?
 - 보면 `InputStream`의 overloading 되어 있는 모든 `read()` 메소드의 반환값이 `int` 이다. 
 - 그 이유는 스트림에 있는 데이터를 모두 읽었을 때 `-1` 을 반환하는데 반환값이 byte이면 `-1` 을 반환할 수 없기 때문이다. 
 - 데이터를 읽을 때 우선 0-255 사이의 값을 int로 반환하고, 해당 값을 -128 부터 127 사이의 byte 타입으로 변환한다. 
 
 <br>
 
-## InputStream to String
+### InputStream to String
 - 여러가지 방법이 있겠지만 가장 간단한 방법은 다음이다. 
 - InputStream에서 읽은 byte 데이터를 `new String()`을 통해 반환한다. 
 - 이때 두번째 인자로 인코딩 타입도 정할 수 있다. 
@@ -78,7 +78,7 @@ final String data =
 <br>
 <br>
 
-# OutputStream
+## OutputStream
 - 다른 매체 (콘솔, 모니터, 파일 등등)에 데이터를 쓸 때 사용되는 출력 스트림이다. 
         <p align="center"><img width=400 src="https://user-images.githubusercontent.com/63405904/130900408-a052d0ba-0ac3-4818-8fc7-80c17f156d41.png"><br>이미지 출처: 오라클 docs</p>
 - 그냥 `write()`는 바이트 단위로 쓰기 때문에 비효율적이다. `read()`와 마찬가지로 `write()`도 byte[]을 인자로 넣어서 1 바이트 이상을 효율적으로 쓸 수 있다. 
@@ -88,7 +88,7 @@ final String data =
    ```
 <br>
 
-## `ByteArrayOutputStream` vs. `BufferedOutputStream`
+### `ByteArrayOutputStream` vs. `BufferedOutputStream`
 - `ByteArrayOutputStream`는 메모리에 데이터를 출력하는 스트림이다. 
 - `BufferedOutputStream`은 버퍼링 된 출력 스트림을 생성하는 filter stream의 일종으로 생성시 인자로 OutputStream을 받는다. 
     
@@ -100,11 +100,11 @@ final String data =
     - `BufferedOutputStream`의 `close()`가 호출되면 버퍼에 있는 내용이 출력 스트림에 쓰인다. 
     - 스트림을 닫지 않은 채로 내용을 쓰고 싶다면 `flush()`를 호출하면 된다.  
 
-### 차이점
+#### 차이점
 - `ByteArrayOutputStream`은 unbuffered I/O이고, `BufferedOutputStream`은 buffered I/O 이다. 
 <br>
 
-### 왜 buffered I/O를 사용할까?
+#### 왜 buffered I/O를 사용할까?
 - unbuffered I/O를 사용한다는 것은 매번 입력 및 출력시 OS에 직접적인 요청이 간다는 것이다. 디스크 접근, 네트워크, 등등의 OS관련 요청이 많아지면서 그 비용으로 인해 프로그램의 효율이 배우 떨어진다. 
 - 그것을 해결하기 위해서 자바가 buffered I/O를 지원하도록 했다. 
     - Buffered input stream은 데이터를 buffer라는 메모리 공간에서 읽고 native input API 는 버퍼가 비었을때만 호출된다.   
@@ -114,7 +114,7 @@ final String data =
 - 문자 버퍼링을 위해 `BufferedReader`, `BufferedWriter`가 있다. 
 <br>
 
-### `flush()`는 언제?
+#### `flush()`는 언제?
 - 언제 buffer를 비우는지가 중요한 포인트이다. 버퍼를 비우고 target에 입출력을 반영하는 것을 flushing이라고 한다. 
 - 어떤 buffered output class들은 autoflush를 지원해서 특정 이벤트 동작시 자동 flush가 되도록 한다. 
     - 예를 들어 `PrintWriter`가 `println`, `format` 등을 기점으로 `flush`를 한다. 
@@ -124,8 +124,8 @@ final String data =
 <br>
 <br>
 
-# File
-## path, absolute path, canonical path
+## File
+### path, absolute path, canonical path
 - 파일 이름으로 경로를 찾아 해당 파일을 읽는 실습을 하면서 여러 종류의 path가 등장한다. 
 1. path - 가장 기본적인 path로 주로 입력된 경로 그대로이다. 
 2. absolute path - 처음 root 부터 절대 경로를 나타낸다. 
@@ -142,7 +142,7 @@ final String data =
     ```
 <br>
 
-## Java에서 리소스 파일 읽기
+### Java에서 리소스 파일 읽기
 - Java에서 리소스 파일을 읽을 때는 다음과 같이 하면 된다. 
     ```java
     URL resource = getResource().getClassLoader().getResource(fileName);
@@ -164,7 +164,6 @@ final String data =
     ```
     - 아직 테스트는 해보지 않았으나 조만한 해볼 예정이다. 
 
-<br>
 <br>
 <br>
 

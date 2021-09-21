@@ -7,7 +7,7 @@ tags: JPA 스프링
 categories: JPA 스프링
 ---
 
-# INTRO 
+## INTRO 
 
 - JPA에서는 데이터와 객체지향으로 설계 사이의 모순을 해소하기 위해서 나온 기술이다. 
 - 많은 객체들은 내부에 Collection 형태로 다른 객체에 대한 참조가 가능하게 설계된다. 
@@ -19,7 +19,7 @@ categories: JPA 스프링
 
 <br>
 
-# Entity 상황
+## Entity 상황
 
 - `Team`과 `Member`가 1:N 연관관계 - `FetchType.LAZY`, `cascadeType.PERSIST`
 - `Team`과 `Locker`가 1:N 연관관계 - `FetchType.LAZY`, `cascadeType.PERSIST`
@@ -113,7 +113,7 @@ categories: JPA 스프링
 
 <br>
 
-# JPA에서 collection fetch join
+## JPA에서 collection fetch join
 
 - Team에 대한 모든 정보가 필요한 경우 Team을 가져오면서 Members와 Lockers 정보도 모두 함께 가지고 와야하는 경우가 있을 수 있다. 
 - JPA에서는 `OneToMany`관계에서 fetch join을 할 경우 중복 데이터가 발생한다. 따라서 해결을 하기 위해서 쿼리에 `distinct`를 추가해주어 중복을 없애야한다. 
@@ -204,7 +204,7 @@ categories: JPA 스프링
 
 <br>
 
-# `FetchType.EAGER` - `MultipleBagFetchException` 발생 
+## `FetchType.EAGER` - `MultipleBagFetchException` 발생 
 
 
 - 현재는 위에 연관관계 fetchType이 `LAZY`로 되어 있지만 두 가지를 `EAGER`로 설정하여 즉시로딩 할 경우 `MultipleBagFetchExcpetion`이 발생한다. 
@@ -214,7 +214,7 @@ categories: JPA 스프링
 
 <br>
 
-# `FetchType.LAZY` - `N+1 문제` 발생
+## `FetchType.LAZY` - `N+1 문제` 발생
 
 - `Team`의 `Member`와 `Locker`가 각각 `OneToMany` 연관관계가 맺어져 있다. 
 - 다음과 같이 메소드를 실행 할 때 N + 1 쿼리가 발생한다. 
@@ -305,7 +305,7 @@ categories: JPA 스프링
 
 <br>
 
-## 하나의 collection `fetch join`을 할 경우 
+### 하나의 collection `fetch join`을 할 경우 
 
 - 우선 하나의 Collection이라도 `fetch join` 한다면 어떻게 동작이 될까? 
 - Team을 조회할 때 다음과 같은 쿼리를 사용해서 Lockers 컬렉션만 join fetch 하도록 한다. 
@@ -361,7 +361,7 @@ categories: JPA 스프링
 <br>
 <br>
 
-# 다수의 collection `fetch join`을 할 경우 - `MutipleBagFetchException` 발생
+## 다수의 collection `fetch join`을 할 경우 - `MutipleBagFetchException` 발생
 
 - 그렇다면 두 개의 컬렉션을 모두 fetch join 한다면 쿼리를 최적화 할 수 있지 않을까 생각할 수 있다. 
 - 하지만 두개의 OneToMany 연관관계에 있는 collection fetch join을 할 경우 `MutipleBagFetchException` 예외가 발생한다. 
@@ -379,9 +379,8 @@ categories: JPA 스프링
 <br>
 <br>
 
-# 또 다른 문제, JPA Pagination
----
-<br>
+## 또 다른 문제, JPA Pagination
+
 
 - 위와 같은 서비스 로직을 실행할 때 뿐 아니라 JPA Pagination을 적용하려고 할 때 collection fetch join의 문제가 발생한다. 
 - collection fetch 를 할 경우 데이터 뻥튀기가 발생하기 때문에 Paging에 애매하게 되기 때문에 `select` 할 때 `WARN`이 발생한다. 
@@ -409,7 +408,7 @@ Hibernate:
 <br>
 <br>
 
-# 해결방법: BatchSize 적용하기 
+## 해결방법: BatchSize 적용하기 
 
 - 위 문제를 해결할 수 있는 방법 중 하나는 BatchSize를 적용하는 것이다. 
 - `spring.jpa.properties.hibernate.default_batch_fetch_size={batchSize}` 를 `application.properties`에 지정하면 설정된 Batch Size만큼 `IN` 쿼리로 날라간다. 

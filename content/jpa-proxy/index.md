@@ -7,7 +7,7 @@ tags: JPA 스프링
 categories: JPA 스프링
 ---
 
-# Intro
+## INTRO
 
 - JPA는 DB의 데이터와 객체간의 모순을 해결하기 위해서 나온 것이다.
 - 객체는 객체 그래프로 탐색이 가능하지만 데이터베이스에 저장된 데이터는 객체를 탐색하듯이 탐색하기가 어렵다.
@@ -18,7 +18,7 @@ categories: JPA 스프링
 <br>
 <br>
 
-# 기본 예시 Entity
+## 기본 예시 Entity
 1. Member
     ```java
     @Entity
@@ -65,7 +65,7 @@ categories: JPA 스프링
 <br>
 <br>
 
-# 프록시
+## 프록시
 - 지연 로딩을 설정된 연관 객체를 가져올 때 프록시 객체를 가져온다.
 - `em.find()`를 사용하면 실제 객체를 가져오고, `em.getReference()`를 사용하면 프록시 객체를 가져온다.
     - 프록시 객체를 가져온다는 것은 query는 실행되지 않는 것이다.
@@ -155,7 +155,7 @@ void getReference_proxyEntity() {
 <br>
 <br>
 
-# 프록시 객체 특징 및 초기화  
+## 프록시 객체 특징 및 초기화  
 
 - 초기화는 영속성 컨텍스트에 실제 객체가 없을 경우 엔티티 생성을 요청하여 영속성 컨텍스트에 실제 entity를 로드하고 참조값을 저장하는 것이다. 
 - 프록시 객체는 실제 객체를 상속한다. 따라서 사용할 때는 실제 Entity처럼 사용할 수 있다. 
@@ -227,7 +227,7 @@ where
 <br>
 <br>
 
-# 프록시 객체 타입 체크 
+## 프록시 객체 타입 체크 
 
 - 프록시 객체의 타입은 `getClass()` 로 비교할 경우 프록시 객체 클래스가 조회되기 때문에 비교하기 위해서는 `instanceOf` 를 사용해야 한다. 
 - 많은 경우 프록시 객체를 `getClass()`로 실제 entity와 비교하여 버그가 발생한다. 
@@ -261,7 +261,7 @@ void proxyType_getClass() {
 <br>
 <br>
 
-# 영속성 컨텍스트에 있는 entity getReference
+## 영속성 컨텍스트에 있는 entity getReference
 
 - 영속성 컨텍스트에 조회하고자 하는 entity가 이미 존재한다면 `getReference()`를 사용하더라도 프록시 객체가 아닌 실제 entity 가 반환된다. 
 <br>
@@ -286,7 +286,7 @@ void getReference_AlreadyInPersistenceContext() {
 <br>
 <br>
 
-# 준영속 entity 초기화 
+## 준영속 entity 초기화 
 
 - 준영속이 된 프록시 객체에서 초기화를 시도할 경우 하이버네이트의 `LazyInitializationException`이 발생한다. 
 - 프록시의 초기화는 영속성 컨텍스트와 매우 밀접하게 관련이 있으므로 영속성 컨텍스트와의 관계가 끊어지면 에외가 발생한다. 
@@ -322,7 +322,7 @@ void getReference_InitializationExcpetion() {
 <br>
 <br>
 
-# 프록시 객체 확인
+## 프록시 객체 확인
 
 - 프록시 객체 확인을 위해서는 `PersistenceUnitUtil.isLoaded(Object entity)`를 사용해서 확인할 수 있다. 
 - 때때로 jpa repostiory에 대한 단위 테스트를 작성하려고 할 때, 의도한대로 지연로딩 또는 즉시로딩이 되었는지 확인할 때 사용할 수 있다. 
@@ -356,3 +356,5 @@ void PersistenceUnitUtil_Proxy() {
 }
 ```
 
+```toc
+```
