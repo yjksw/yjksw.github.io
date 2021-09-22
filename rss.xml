@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[FromCoding]]></title><description><![CDATA[From Coding To Everyone Else]]></description><link>https://yjksw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 21 Sep 2021 10:09:52 GMT</lastBuildDate><item><title><![CDATA[DB 리플리케이션 적용하기]]></title><description><![CDATA[INTRO DB Replication을 MySQL 공식 홈페이지에서 찾아보면 다음과 같이 말한다.     Replication enables data from one MySQL databse server (known as a source) to be…]]></description><link>https://yjksw.github.io/db-replication/</link><guid isPermaLink="false">https://yjksw.github.io/db-replication/</guid><pubDate>Fri, 10 Sep 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#intro&quot; aria-label=&quot;intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;INTRO&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[FromCoding]]></title><description><![CDATA[From Coding To Everyone Else]]></description><link>https://yjksw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 22 Sep 2021 12:04:57 GMT</lastBuildDate><item><title><![CDATA[DB 리플리케이션 적용하기]]></title><description><![CDATA[INTRO DB Replication을 MySQL 공식 홈페이지에서 찾아보면 다음과 같이 말한다.     Replication enables data from one MySQL databse server (known as a source) to be…]]></description><link>https://yjksw.github.io/db-replication/</link><guid isPermaLink="false">https://yjksw.github.io/db-replication/</guid><pubDate>Fri, 10 Sep 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#intro&quot; aria-label=&quot;intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;INTRO&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;DB Replication을 MySQL 공식 홈페이지에서 찾아보면 다음과 같이 말한다.    &lt;/p&gt;
@@ -744,6 +744,149 @@ Cookie: JSESSIONID=2cfd4acb-0b67-4ce9-90c4-97ee3242e51b&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%EC%96%B8%EC%A0%9C-%EB%AC%B4%EC%97%87%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C&quot;&gt;언제 무엇을 사용하는 것이 좋을까?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%EB%B2%88%EC%99%B8-static-httpsessions-%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0-mockstatic&quot;&gt;번외) static &lt;code class=&quot;language-text&quot;&gt;HttpSessions&lt;/code&gt; 클래스 테스트하기 &lt;code class=&quot;language-text&quot;&gt;MockStatic&amp;lt;&gt;&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[OAuth 알아보기]]></title><description><![CDATA[1. INTRO 많은 어플리케이션에서 소셜 로그인을 지원하는데, 이때 사용되는 것이 OAuth 2.0 이다.  간단하게 이야기하면 OAuth 2.0 이란 사용자의 정보에 대한 권한을 부여하는 의 일종이다.  (정의) 제…]]></description><link>https://yjksw.github.io/oauth/</link><guid isPermaLink="false">https://yjksw.github.io/oauth/</guid><pubDate>Fri, 03 Sep 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;1-intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-intro&quot; aria-label=&quot;1 intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. INTRO&lt;/h2&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;많은 어플리케이션에서 소셜 로그인을 지원하는데, 이때 사용되는 것이 OAuth 2.0 이다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;간단하게 이야기하면 OAuth 2.0 이란 사용자의 정보에 대한 권한을 부여하는 &lt;code class=&quot;language-text&quot;&gt;산업 표준 프로토콜&lt;/code&gt;의 일종이다. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(정의) 제 3의 앱이 자원의 소유자인 서비스 이용자를 대신하여 서비스를 요청할 수 있도록 자원 접근 권한을 위임하는 방법 &lt;br&gt; &lt;em&gt;출처: 금융보안원 “OAuth 2.0 개요 및 보안 고려사항” 보안연구부-2015-030&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;즉, 정보 소유자 (서비스 이용자)를 대신하여 앱이 다른 서비스에 등록되어 있는 자원에 대한 접근을 요청하는 권한을 위임한다. &lt;/li&gt;
+&lt;li&gt;아래 글은 &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2&quot;&gt;링크&lt;/a&gt; 원문을 번역하고 일부 요약한 것이다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;2-oauth-주요-개념&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-oauth-%EC%A3%BC%EC%9A%94-%EA%B0%9C%EB%85%90&quot; aria-label=&quot;2 oauth 주요 개념 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. OAuth 주요 개념&lt;/h2&gt;
+&lt;br&gt;
+1. **리소스 소유자** (Resource Owner) - 어플리케이션이 인가 요청을 하는 정보의 소유자이다. 즉, 그 정보를 소유하고 있는 &apos;사용자&apos;를 말한다. 
+2. **클라이언트** (Client) - 리소스 소유자의 정보를 요청하는 어플리케이션이다. 
+3. **리소스 서버** (Resource Server) - 리소스 소유자의 정보를 보유하고 있는 서버이다. 
+4. **인가 서버** (Authorization Server) - 클라이언트가 사용자에 대한 정보 권한을 요청할 때, 그 사용자에 대해 검증하고 클라이언트 어플리케이션에 access token을 발급하는 인가 서버이다. 편의상 리소스 서버와 인가 서버를 구별하지 않고 이해해도 좋다. 
+&lt;br&gt; 
+&lt;br&gt;
+&lt;h2 id=&quot;3-간단히-보는-oauth-프로토콜-흐름&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B3%B4%EB%8A%94-oauth-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%ED%9D%90%EB%A6%84&quot; aria-label=&quot;3 간단히 보는 oauth 프로토콜 흐름 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 간단히 보는 OAuth 프로토콜 흐름&lt;/h2&gt;
+&lt;br&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;img width=&quot;540&quot; alt=&quot;스크린샷 2021-08-17 오후 2 41 53&quot; src=&quot;https://user-images.githubusercontent.com/63405904/129669922-d91d3405-3315-4b29-9e47-f8015dec6b13.png&quot;&gt;출처 : Digital Ocean의 An Introduction to OAuth 2.0&lt;/p&gt;
+&lt;br&gt;
+&lt;ol&gt;
+&lt;li&gt;어플리케이션 유저에게 리소스에 대한 인가를 요청한다. &lt;/li&gt;
+&lt;li&gt;유저는 해당 인가를 승인한다. &lt;/li&gt;
+&lt;li&gt;어플리케이션은 리소스를 보유하고 있는 인가 서버에 access token을 요청한다. &lt;/li&gt;
+&lt;li&gt;본 어플리케이션이 인증이 되고, 인가 승인을 인증하면 인가 서버는 해당 어플리케이션에 access token을 발급하고 인가 절차가 마무리된다. &lt;/li&gt;
+&lt;li&gt;인가를 받은 어플리케이션은 리소스 서버에 access token과 함께 리소스를 요청한다.&lt;/li&gt;
+&lt;li&gt;리소스 서버에서 access token을 확인하면 해당 리소스를 어플리케이션에 제공한다. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;4-어플리케이션-등록&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%93%B1%EB%A1%9D&quot; aria-label=&quot;4 어플리케이션 등록 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 어플리케이션 등록&lt;/h2&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;OAuth 기능을 추가하기 이전 본 어플리케이션(클라이언트)를 리소스를 요청하고자 하는 제 3 서비스(Google, Kakao, Github 등등)에 등록해야한다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;등록 정보 &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;- 어플리케이션 이름
+- 어플리케이션 웹사이트
+- Redirect URI or Callback URL&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;위에서 리다이렉트 URI는 인가 후, 인가 서버(리소스 서버)에서 code를 전송해줄 주소를 말한다.
+&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;어플리케이션 등록 시 다음 정보를 발급 받는다. 다음은 &lt;code class=&quot;language-text&quot;&gt;Client Credentials&lt;/code&gt;이라고 도 한다. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Client Id - 외부에 노출되는 어플리케이션 identity 이다.&lt;/li&gt;
+&lt;li&gt;Client Secret - 외부에 공개되어서는 안되는 key로 어플리케이션을 인증하고 유저의 계정에 접근을 요청할 때 사용한다. (Access Token 발급 시)
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;5-authorization-부여하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-authorization-%EB%B6%80%EC%97%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;5 authorization 부여하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. Authorization 부여하기&lt;/h2&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;OAuth 2.0은 3가지 종류로 인가를 부여한다. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Authorization Code&lt;/li&gt;
+&lt;li&gt;Client Credentials&lt;/li&gt;
+&lt;li&gt;Device Code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;위 3가지 중 이번 프로젝트에서는 &lt;code class=&quot;language-text&quot;&gt;Authorization Code&lt;/code&gt;를 사용했다. &lt;code class=&quot;language-text&quot;&gt;Authorization Code&lt;/code&gt;가 가장 빈번하게 사용이 되는데 server-side applications에 가장 최적화 되어 있기 때문이다. &lt;/li&gt;
+&lt;li&gt;아래가 &lt;code class=&quot;language-text&quot;&gt;Authorization Code&lt;/code&gt;를 발급받는 기본 흐름인데, 보면 어플리케이션이 user-agent(유저의 웹 브라우저)와 소통할 수 있어야 하며 user-agent를 통해 라우팅 된 API authorization 코드를 받을 수 있어야 한다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;img width=&quot;688&quot; alt=&quot;스크린샷 2021-08-17 오후 4 08 28&quot; src=&quot;https://user-images.githubusercontent.com/63405904/129680013-50c21f7f-e1a2-4bb7-89fc-361450ef6c3e.png&quot;&gt;출처 : Digital Ocean의 An Introduction to OAuth 2.0&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;리소스를 요청하고자 하는 서버에 기재되어 있는 API authorization endpoint URI 에 1) client&lt;em&gt;id 2) redirect&lt;/em&gt;uri 3) response_type 4) scope 등을 지정해서 요청을 보낸다. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;본인은 프로젝트에서 Github 소셜 로그인을 구현했었는데 &lt;code class=&quot;language-text&quot;&gt;https://github.com/login/oauth/authorize?client_id=%s&amp;amp;redirect_uri=%s&amp;amp;scope=%s&lt;/code&gt; 로 유저 인가 request를 보내도록 되어 있었다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;그럼 해당 리소스 서버(Github 등)에서 인가를 허가할지 말지 여부를 물어보는 페이지로 이동하여 유저가 허가 또는 거절을 누른다. &lt;/li&gt;
+&lt;li&gt;유저가 허가한다면 리소스 서버(인가 서버)는 user-agent(브라우저)가  어플리케이션 등록 시 기재한 redirect URI로 authorization code와 함께 리다이렉트 하도록 한다. &lt;/li&gt;
+&lt;li&gt;어플리케이션은 리소스 서버(인가 서버)에 1) client&lt;em&gt;id 2) client&lt;/em&gt;secrete 3) grant&lt;em&gt;type 4) code 5) redirect&lt;/em&gt;uri 와 함께 Access Token 발급 request를 보낸다. &lt;/li&gt;
+&lt;li&gt;리소스 서버(인가 서버)에서 요청을 검사하고 유효하다면 AccessToken을 반환한다.
+&lt;code class=&quot;language-text&quot;&gt;{&quot;access_token&quot;:&quot;ACCESS_TOKEN&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:2592000,&quot;refresh_token&quot;:&quot;REFRESH_TOKEN&quot;,&quot;scope&quot;:&quot;read&quot;,&quot;uid&quot;:100101,&quot;info&quot;:{&quot;name&quot;:&quot;developer_coda&quot;,&quot;email&quot;:&quot;coda@coda.com&quot;}}&lt;/code&gt;
+&lt;br&gt;
+&lt;br&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;6-access-token-활용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#6-access-token-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;6 access token 활용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6. Access Token 활용하기&lt;/h2&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;이후 어플리케이션은 리소스 서버에 원하는 정보 또는 행위를 요청할 때 헤더에 access token을 담아서 요청하도록 한다. &lt;/li&gt;
+&lt;li&gt;Access token을 어플리케이션에 어떻게 관리할지는 내부 논의 후 정해서 저장하면 된다. (Redis, JWT 등등 이 있다.)&lt;/li&gt;
+&lt;li&gt;본인은 프로젝트에서 JWT 토큰의 value로 저장하고 유저에게 JWT 토큰을 반환했다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;7-전체적인-흐름도&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#7-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-%ED%9D%90%EB%A6%84%EB%8F%84&quot; aria-label=&quot;7 전체적인 흐름도 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;7. 전체적인 흐름도&lt;/h2&gt;
+&lt;br&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;img width=&quot;700&quot; alt=&quot;스크린샷 2021-08-17 오후 4 44 00&quot; src=&quot;https://user-images.githubusercontent.com/63405904/129685067-5d0bbbdc-0224-42e8-bed4-fe984cb036ec.png&quot;&gt;출처 : NHN Cloud - OAuth 2.0 대표 취약점과 보안 고려 사항 알아보기&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;8-번외-oauth의-대표-취약점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#8-%EB%B2%88%EC%99%B8-oauth%EC%9D%98-%EB%8C%80%ED%91%9C-%EC%B7%A8%EC%95%BD%EC%A0%90&quot; aria-label=&quot;8 번외 oauth의 대표 취약점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;8. 번외) OAuth의 대표 취약점&lt;/h2&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;81-csrfcross-site-request-forgery-공격&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#81-csrfcross-site-request-forgery-%EA%B3%B5%EA%B2%A9&quot; aria-label=&quot;81 csrfcross site request forgery 공격 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;8.1. CSRF(Cross Site Request Forgery) 공격&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;OAuth 인증 진행 시, 발급받은 &lt;code class=&quot;language-text&quot;&gt;Authorization Code&lt;/code&gt;와 이전에 발급받은 &lt;code class=&quot;language-text&quot;&gt;client_secret&lt;/code&gt;을 함께 보내어 리소스 서버에 Access Token을 요청하는 단계가 있다. &lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;client_secret&lt;/code&gt;은 CSRF token과 같은 역할을 해서 중간에 CSRF 공격을 예방하는 역할을 하는데, 만일 이것에 대한 검증이 누락되거나 취약하면 CSRF 공격에 의해 Authorization Code가 탈취되어 사용자의 계정이 노출될 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;client_secret&lt;/code&gt;에 대한 검증이 필요하다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;82-convert-redirect&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#82-convert-redirect&quot; aria-label=&quot;82 convert redirect permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;8.2. Convert Redirect&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;유저가 로그인한 후 인가를 승인하고 Authorization Code에 대해서 발급할 때 리다이렉트 되는 redirect_uri에 대한 검증이 안될 경우 공격자가 해당 공격 서버의 uri로 대체하여 Authorization Token을 탈취할 수 있다. &lt;/li&gt;
+&lt;li&gt;Redirect URI에 대한 Full path 검증을 진행해야한다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;[출처]&lt;/strong&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2&quot;&gt;https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://meetup.toast.com/posts/105&quot;&gt;https://meetup.toast.com/posts/105&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;table-of-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-intro&quot;&gt;1. INTRO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-oauth-%EC%A3%BC%EC%9A%94-%EA%B0%9C%EB%85%90&quot;&gt;2. OAuth 주요 개념&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B3%B4%EB%8A%94-oauth-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%ED%9D%90%EB%A6%84&quot;&gt;3. 간단히 보는 OAuth 프로토콜 흐름&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#4-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%93%B1%EB%A1%9D&quot;&gt;4. 어플리케이션 등록&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5-authorization-%EB%B6%80%EC%97%AC%ED%95%98%EA%B8%B0&quot;&gt;5. Authorization 부여하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#6-access-token-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0&quot;&gt;6. Access Token 활용하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#7-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-%ED%9D%90%EB%A6%84%EB%8F%84&quot;&gt;7. 전체적인 흐름도&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#8-%EB%B2%88%EC%99%B8-oauth%EC%9D%98-%EB%8C%80%ED%91%9C-%EC%B7%A8%EC%95%BD%EC%A0%90&quot;&gt;8. 번외) OAuth의 대표 취약점&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#81-csrfcross-site-request-forgery-%EA%B3%B5%EA%B2%A9&quot;&gt;8.1. CSRF(Cross Site Request Forgery) 공격&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#82-convert-redirect&quot;&gt;8.2. Convert Redirect&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[CDN 알아보기]]></title><description><![CDATA[Intro 이번에 프로젝트를 진행하면서 보안상의 이유로 직접 S3 서버에 접근할 수 없었기 때문에 AWS에서 제공하는 CDN 서비스인 CloudFront를 통해서 이미지 등의 리소스에 접근해야 했다. (CDN…]]></description><link>https://yjksw.github.io/cdn/</link><guid isPermaLink="false">https://yjksw.github.io/cdn/</guid><pubDate>Thu, 02 Sep 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#intro&quot; aria-label=&quot;intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Intro&lt;/h2&gt;
 &lt;hr&gt;
@@ -2320,6 +2463,439 @@ Hibernate: &lt;span class=&quot;token comment&quot;&gt;# Team 2개의 Id가 IN �
 &lt;li&gt;&lt;a href=&quot;#%EB%B0%9C%EC%83%9D-%EC%9B%90%EC%9D%B8&quot;&gt;발생 원인&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95&quot;&gt;해결 방법&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%EB%A7%88%EB%AC%B4%EB%A6%AC&quot;&gt;마무리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[웹 개발 시 Profile 전략 - @Profile & @ActiveProfile]]></title><description><![CDATA[Intro 프로젝트를 진행하다 보면 상황에 따라 각기 다른 운영환경을 설정해야할때가 있다. 그때마다 properties…]]></description><link>https://yjksw.github.io/profile-active-profile/</link><guid isPermaLink="false">https://yjksw.github.io/profile-active-profile/</guid><pubDate>Thu, 19 Aug 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#intro&quot; aria-label=&quot;intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Intro&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;프로젝트를 진행하다 보면 상황에 따라 각기 다른 운영환경을 설정해야할때가 있다. 그때마다 properties 설정 파일에 가서 설정되어있는 운영 환경을 바꾸고 돌리기는 어렵다. &lt;/li&gt;
+&lt;li&gt;이때 각기 다른 &lt;code class=&quot;language-text&quot;&gt;Profile&lt;/code&gt;를 적용해서 상황에 따라 적합한 &lt;code class=&quot;language-text&quot;&gt;Profile&lt;/code&gt; 설정을 따르도록 할 수 있다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;yml-파일로-설정-나누기---간단하게&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#yml-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EC%84%A4%EC%A0%95-%EB%82%98%EB%88%84%EA%B8%B0---%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C&quot; aria-label=&quot;yml 파일로 설정 나누기   간단하게 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;yml 파일로 설정 나누기 - 간단하게&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;yml&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;properties&lt;/code&gt;를 통해서 profile 설정을 나눌 수 있다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;각각 원하는 환경에 대한 설정정보를 &lt;code class=&quot;language-text&quot;&gt;yml&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;properties&lt;/code&gt;에 기재한 후 &lt;code class=&quot;language-text&quot;&gt;application-{profile-name}.yml&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;application-{profile-name}.properties&lt;/code&gt;로 지정한다. &lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;img width=&quot;317&quot; alt=&quot;스크린샷 2021-08-17 오후 8 42 39&quot; src=&quot;https://user-images.githubusercontent.com/63405904/129719783-aeb9d93e-4c22-473e-9221-0b553393287d.png&quot;&gt;&lt;br&gt;resources 하위에 나누어진 profiles 설정들&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;여러 profile 환경으로 나눠져 있을 경우 어떤 profile을 기본적으로 실행할 것인지 &lt;code class=&quot;language-text&quot;&gt;application.properties&lt;/code&gt;에 지정해 주어야 한다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;properties&quot;&gt;&lt;pre class=&quot;language-properties&quot;&gt;&lt;code class=&quot;language-properties&quot;&gt;    spring.
+        profiles.
+&lt;span class=&quot;token attr-name&quot;&gt;            active&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;local&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;나누어진 profile을 적용하기 위해서는 &lt;code class=&quot;language-text&quot;&gt;$ java -jar -Dspring.profiles.active={profile-name} [jar파일명]&lt;/code&gt;로 적용하고자하는 프로필을 지정하여 실행하거나 &lt;code class=&quot;language-text&quot;&gt;@ActiveProfile&lt;/code&gt; 어노테이션을 활용할 수 있다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;사용-예시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C&quot; aria-label=&quot;사용 예시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용 예시&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;본인은 프로젝트 진행 시 다음과 같이 local, prod, test로 환경을 나누었다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;application-local.yml&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;datasource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; jdbc&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;mariadb&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//localhost&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3306/pickgit&lt;span class=&quot;token punctuation&quot;&gt;?&lt;/span&gt;serverTimezone=UTC&lt;span class=&quot;token important&quot;&gt;&amp;amp;characterEncoding=UTF-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token important&quot;&gt;***&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token important&quot;&gt;***&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;jpa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;show-sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hibernate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;dialects&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; org.hibernate.dialect.MySQL57Dialect
+        &lt;span class=&quot;token key atrule&quot;&gt;format_sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;default_batch_fetch_size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;generate-ddl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hibernate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;ddl-auto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;application-prod.yml&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;datasource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; jdbc&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;mariadb&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//localhost&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;13306/pickgit&lt;span class=&quot;token punctuation&quot;&gt;?&lt;/span&gt;serverTimezone=UTC&lt;span class=&quot;token important&quot;&gt;&amp;amp;characterEncoding=UTF-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token important&quot;&gt;***&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token important&quot;&gt;***&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;driver-class-name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; org.mariadb.jdbc.Driver
+&lt;span class=&quot;token key atrule&quot;&gt;jpa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;show-sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hibernate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;dialects&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; org.hibernate.dialect.MySQL57InnoDBDialect
+        &lt;span class=&quot;token key atrule&quot;&gt;format_sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;default_batch_fetch_size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;generate-ddl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hibernate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;ddl-auto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; validate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;application-test.yml&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;datasource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; jdbc&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;h2&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;mem&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;~/test;MODE=MySQL;DB_CLOSE_DELAY=&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;1;DB_CLOSE_ON_EXIT=FALSE
+    &lt;span class=&quot;token key atrule&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token important&quot;&gt;**&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token important&quot;&gt;**&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;jpa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;show-sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hibernate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;dialects&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; org.hibernate.dialect.MySQL57Dialect
+        &lt;span class=&quot;token key atrule&quot;&gt;format_sql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;default_batch_fetch_size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;generate-ddl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hibernate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;ddl-auto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; create&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;drop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;application.yml&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;spring.profiles.active:&lt;/code&gt; 로 기본 profile 환경을 세팅할 수 있다. &lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;spring.profiles.include:&lt;/code&gt; 로 포함할 다른 profile 설정을 지정할 수 있다. (주로 공통으로 적용될만한 보안 관련 profile, aws 관련 설정 등을 include로 포함한다.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;profile-어노테이션으로-환경별-설정-다르게-하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#profile-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%ED%99%98%EA%B2%BD%EB%B3%84-%EC%84%A4%EC%A0%95-%EB%8B%A4%EB%A5%B4%EA%B2%8C-%ED%95%98%EA%B8%B0&quot; aria-label=&quot;profile 어노테이션으로 환경별 설정 다르게 하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;@Profile 어노테이션으로 환경별 설정 다르게 하기&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@Profile&lt;/code&gt;을 사용하면 해당 어노테이션에서 지정한 환경으로 어플리케이션 실행 시 configuration을 설정할 수 있다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;@Profile&lt;/code&gt; 어노테이션은 다음과 같이 3가지 방법으로 (더 있을 수도 있다) 사용할 수 있다. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;@Configuration 클래스 안에 method 위에 &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InfrastructureConfiguration&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Profile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;OAuthClient&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mockGithubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockGithubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Profile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;prod&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;OAuthClient&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;githubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GithubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;OAuthClient 주입할 때 “test” profile 환경이면 &lt;code class=&quot;language-text&quot;&gt;MockGithubOAuthClient&lt;/code&gt;가 주입되고 “prod” profile 환경이면 &lt;code class=&quot;language-text&quot;&gt;GithubOAuthClient&lt;/code&gt;가 주입된다.
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@Configuration 클래스 안에 static class 위에&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;InfrastructureConfiguration&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Profile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        
+        &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;OAuthClient&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mockGithubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockGithubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Profile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;prod&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        
+        &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;OAuthClient&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;githubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GithubOAuthClient&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;중첩 클래스로도 설정할 수 있다. 보기에 가독성이 좋은 것으로 선택하면 된다.
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;인터페이스를 구현하는 구현체 class 위에 설정 &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bean으로 등록되어 있는 클래스에 적용할 수 있다. (&lt;code class=&quot;language-text&quot;&gt;@Configuration&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;@Component&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OAuthClient 라는 인터페이스가 있을 때, 해당 인터페이스를 구현하는 구현체를 Profile에 따라 나누어서 적용할 수 있다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Profile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;!test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//profile이 테스트가 아닐 경우 적용된다. &lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GithubOAuthClient&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OAuthClient&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//... 프로퍼티 생략&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getLoginUrl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;https://github.com/login/oauth/authorize&quot;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;?client_id=%s&quot;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;amp;redirect_uri=%s&quot;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;amp;scope=%s&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        clientId&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; redirectUrl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getAccessToken&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; code&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//... 세부 로직 생략 &lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//... 생략 &lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;위 로직은 Github OAuth관련 로직이므로 사용자 로그인 행위가 없는 테스트에서 실행하기 어렵기 때문에 아래와 같이 Profile이 “test”로 설정 되었을 경우 MockOAuthClient가 주입되도록 설정한다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Profile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//profile이 테스트가 아닐 경우 적용된다. &lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockGithubOAuthClient&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OAuthClient&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//... 프로퍼티 생략&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getLoginUrl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;https://github.com/login/oauth/authorize&quot;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;?client_id=%s&quot;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;amp;redirect_uri=%s&quot;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;amp;scope=%s&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        clientId&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; redirectUrl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getAccessToken&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; code&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;token&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//... 생략 &lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;activeprofile-어노테이션으로-profile-설정-적용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#activeprofile-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-profile-%EC%84%A4%EC%A0%95-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;activeprofile 어노테이션으로 profile 설정 적용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;@ActiveProfile 어노테이션으로 profile 설정 적용하기&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;이전에 말한대로 &lt;code class=&quot;language-text&quot;&gt;yml&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;properties&lt;/code&gt; 파일에 profile 설정을 나누고 &lt;code class=&quot;language-text&quot;&gt;application.properties&lt;/code&gt; 등의 파일에 profile 을 지정하거나 jar를 실행하면서 환경을 지정할 수 있다. &lt;/li&gt;
+&lt;li&gt;하지만 어떤 profile 환경에서도 항상 특정 profile 환경으로 실행되어야 할 때가 있다. 예를 들어서 test 코드 같은 경우는 항상 test profile 환경으로 돌아가야한다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이때 해당 클래스 상단에 @ActiveProfile(“test”) 등으로 설정하면 해당 profile이 적용되어 실행된다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@DataJpaTest&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@ActiveProfiles&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OAuthServiceIntegrationTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//...테스트 코드 생략 &lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;[출처]&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://wonwoo.ml/index.php/post/1933&quot;&gt;http://wonwoo.ml/index.php/post/1933&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-profiles&quot;&gt;https://www.baeldung.com/spring-profiles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://umanking.github.io/2019/04/13/spring-profile/&quot;&gt;https://umanking.github.io/2019/04/13/spring-profile/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;table-of-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#yml-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EC%84%A4%EC%A0%95-%EB%82%98%EB%88%84%EA%B8%B0---%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C&quot;&gt;yml 파일로 설정 나누기 - 간단하게&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C&quot;&gt;사용 예시&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#profile-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%ED%99%98%EA%B2%BD%EB%B3%84-%EC%84%A4%EC%A0%95-%EB%8B%A4%EB%A5%B4%EA%B2%8C-%ED%95%98%EA%B8%B0&quot;&gt;@Profile 어노테이션으로 환경별 설정 다르게 하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#activeprofile-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-profile-%EC%84%A4%EC%A0%95-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0&quot;&gt;@ActiveProfile 어노테이션으로 profile 설정 적용하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Springboot 언제 어떤 테스트를 사용할까]]></title><description><![CDATA[Intro 스프링부트 프로젝트를 진행하다보면 웹 mvc에 대한 테스트를 진행해야할 때가 있다.  때로는 각 layer에 대한 슬라이스 테스트를 작성하거나, 일부분에 대한 통합 테스트만을 진행할 때 Mock…]]></description><link>https://yjksw.github.io/spring-boot/</link><guid isPermaLink="false">https://yjksw.github.io/spring-boot/</guid><pubDate>Tue, 17 Aug 2021 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#intro&quot; aria-label=&quot;intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Intro&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;스프링부트 프로젝트를 진행하다보면 웹 mvc에 대한 테스트를 진행해야할 때가 있다. &lt;/li&gt;
+&lt;li&gt;때로는 각 layer에 대한 슬라이스 테스트를 작성하거나, 일부분에 대한 통합 테스트만을 진행할 때 Mock 테스트를 해야할 때도 있다. &lt;/li&gt;
+&lt;li&gt;테스트 관련 annotation에 대해서 정리하고 각 annotation의 차이 및 언제 무엇을 사용하면 좋을지 정리해본다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;code-classlanguage-textspringboottestcode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#code-classlanguage-textspringboottestcode&quot; aria-label=&quot;code classlanguage textspringboottestcode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt; 어노테이션은 &lt;code class=&quot;language-text&quot;&gt;@SpringBootApplication&lt;/code&gt; 을 찾아 해당 configuration에 맞추어 실제 Spring web context를 실행햔다. &lt;/li&gt;
+&lt;li&gt;Spring context의 설정으로 그대로 적용해서 테스트를 진행해야 할 경우에 해당 어노테이션을 붙여서 테스트를 하는 것이 좋다. &lt;/li&gt;
+&lt;li&gt;하지만 전체 컨텍스트를 로드하는 만큼 굉장히 오랜 시간이 걸린다. &lt;/li&gt;
+&lt;li&gt;실제로 &lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt; 어노테이션이 붙은 테스트를 돌려본다면 다음과 같은 스프링 컨텍스트르 로딩하는 긴 로그가 찍히는 것을 확인할 수 있다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//... 일부 생략
+20:37:26.255 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+
+  .   ____          _            __ _ _
+ /\\ / ___&apos;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &apos;_ | &apos;_| | &apos;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &apos;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.2)
+
+//... 일부 생략 
+ &gt; Running with Spring Boot v2.5.2, Spring v5.3.8
+2021-08-16 20:37:26.559 DEBUG 4487 --- [           main] c.w.p.a.user.UserAcceptanceTest          : Running with Spring Boot v2.5.2, Spring v5.3.8
+2021-08-16 20:37:26.560 INFO  main o.s.boot.SpringApplication.logStartupProfileInfo L:663 
+ &gt; The following profiles are active: security,test
+2021-08-16 20:37:26.560  INFO 4487 --- [           main] c.w.p.a.user.UserAcceptanceTest          : The following profiles are active: security,test
+2021-08-16 20:37:27.252  INFO 4487 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-16 20:37:27.328  INFO 4487 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 4 JPA repository interfaces.
+2021-08-16 20:37:28.062  INFO 4487 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-08-16 20:37:28.068  INFO 4487 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-16 20:37:28.068  INFO 4487 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-08-16 20:37:28.115  INFO 4487 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-16 20:37:28.116  INFO 4487 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1379 ms&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;code-classlanguage-textautoconfiguremockmvccode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#code-classlanguage-textautoconfiguremockmvccode&quot; aria-label=&quot;code classlanguage textautoconfiguremockmvccode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;@AutoConfigureMockMvc&lt;/code&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;위 어노테이션은 다음과 같이 &lt;code class=&quot;language-text&quot;&gt;MockMvc&lt;/code&gt;를 주입받아서 톰캣 서버를 띄우지 않은 상태로 API 요청 부분을 Mocking 해서 사용할 수 있다. 하지만 스프링 컨텍스트의 빈을 모두 로드하는 것은 &lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt; 와 동일하다. &lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt; 와 &lt;code class=&quot;language-text&quot;&gt;@AutoConfigureMockMvc&lt;/code&gt;를 사용해서 테스트 코드를 실행해보면 위 &lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt;를 사용했을때와 다르게 Tomcat을 시작하는 로그가 찍히지 않는 것을 확인할 수 있다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;테스트 코드 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AutoConfigureMockMvc&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserControllerTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockMvc&lt;/span&gt; mockMvc&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@DisplayName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;사용자는 내 프로필을 조회할 수 있다.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getAuthenticatedUserProfile_LoginUser_Success&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// given&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;UserProfileResponseDto&lt;/span&gt; responseDto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;mockLoginUserProfileResponseDto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;// when&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;ResultActions&lt;/span&gt; perform &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; mockMvc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/api/profiles/me&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;HttpHeaders&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;AUTHORIZATION&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Bearer testToken&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;contentType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;APPLICATION_JSON_VALUE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ALL&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;//...뒤 코드 생략&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;실행 시 로그 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//...일부 생략 
+21:41:00.201 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___&apos;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &apos;_ | &apos;_| | &apos;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &apos;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.2)
+
+//...일부 생략 
+2021-08-16 21:41:03.332  INFO 4963 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet &apos;&apos;
+2021-08-16 21:41:03.333  INFO 4963 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet &apos;&apos;
+2021-08-16 21:41:03.334  INFO 4963 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-08-16 21:41:03.349  INFO 4963 --- [           main] c.w.p.u.u.p.UserControllerTest           : Started UserControllerTest in 3.144 seconds (JVM running for 3.765)
+2021-08-16 21:41:03.524  INFO 4963 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit &apos;default&apos;
+2021-08-16 21:41:03.525  INFO 4963 --- [ionShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down&apos;
+2021-08-16 21:41:03.532  INFO 4963 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-16 21:41:03.537  INFO 4963 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;code-classlanguage-textwebmvctestcode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#code-classlanguage-textwebmvctestcode&quot; aria-label=&quot;code classlanguage textwebmvctestcode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;@WebMvcTest&lt;/code&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@WebMvcTest&lt;/code&gt;의 경우 &lt;code class=&quot;language-text&quot;&gt;@AutoConfigureMockMvc&lt;/code&gt;와 비슷하게 서버가 모킹이 되지만 MVC와 관련된 빈들만 로드한다. 그렇기 때문에 MVC 관련 빈들만 사용한다면 위 어노테이션을 사용하는 것이 더 부화가 적다. &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;해당 어노테이션 안에 특정 클래스를 지정하면 해당 클래스와 관련한 mvc 빈들이 올라가므로 더 효율적으로 사용할 수 있다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@AutoConfigureRestDocs&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@WebMvcTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;UserController&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@ActiveProfiles&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserControllerTest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockMvc&lt;/span&gt; mockMvc&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@DisplayName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;사용자는 내 프로필을 조회할 수 있다.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Test&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getAuthenticatedUserProfile_LoginUser_Success&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// given&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;UserProfileResponseDto&lt;/span&gt; responseDto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;mockLoginUserProfileResponseDto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// when&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;ResultActions&lt;/span&gt; perform &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; mockMvc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/api/profiles/me&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;HttpHeaders&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;AUTHORIZATION&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Bearer testToken&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;contentType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;APPLICATION_JSON_VALUE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ALL&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;//...뒤 코드 생략&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;위와 동일하게 Tomcat 관련 로그는 찍히지 않는다. 대신 &lt;code class=&quot;language-text&quot;&gt;SpringBootMockServletContext&lt;/code&gt;이 모킹된 서블릿을 초기화 하는 로그를 확인할 수 있다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;2021-08-16 23:46:28.495  INFO 5504 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet &apos;&apos;
+2021-08-16 23:46:28.495  INFO 5504 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet &apos;&apos;
+2021-08-16 23:46:28.496  INFO 5504 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt;컨트롤러 슬라이스 테스트 8개에 대한 각 MockMvc 테스트를 비교했을 때, 미세하지만 &lt;code class=&quot;language-text&quot;&gt;@WebMvcTest&lt;/code&gt;가 더 빠른 것을 확인할 수 있다. 더 많은 숫자의 테스트 일 때 그 차이는 더 커진다.
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;img width=&quot;500&quot; alt=&quot;스크린샷 2021-08-16 오후 11 48 46&quot; src=&quot;https://user-images.githubusercontent.com/63405904/129583308-1e306f3c-0b51-4c97-8606-ee810a739289.png&quot;&gt;@WebMvcTest 사용&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;img width=&quot;598&quot; alt=&quot;스크린샷 2021-08-16 오후 11 50 11&quot; src=&quot;https://user-images.githubusercontent.com/63405904/129583673-8bd736da-f88d-407f-a894-40f1e29a94fa.png&quot;&gt;@AutoConfigureMockMvc 사용&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;code-classlanguage-textextendwithmockitoextensionclasscode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#code-classlanguage-textextendwithmockitoextensionclasscode&quot; aria-label=&quot;code classlanguage textextendwithmockitoextensionclasscode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;@ExtendWith(MockitoExtension.class)&lt;/code&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;br&gt; 
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@ExtendWith&lt;/code&gt;는 JUnit에서 제공하는 기능이다. (위 테스트 어노테이션은 SpringBoot에서 제공한다.)&lt;/li&gt;
+&lt;li&gt;흔히 코드에서 &lt;code class=&quot;language-text&quot;&gt;@ExtendWith(MockitoExtension.class)&lt;/code&gt;으로 많이 사용하고 위의 모킹과 어떠한 부분이 다른지에 대해서 많이 헷갈려한다. &lt;/li&gt;
+&lt;li&gt;위 모킹은 서블릿 컨테이너에 대한 모킹을 스프링 부트 에서 제공하는 것이다. &lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@ExtendWith(MockitoExtension.class)&lt;/code&gt; 은 Mock이라는 가짜 객체를 지원하는 Mockito 테스트 프레임워크를 JUnit5와 연동하여 사용하도록 하는 것이다. (두 개의 테스트 프레임워크의 결합)&lt;/li&gt;
+&lt;li&gt;주로 하나의 Layer의 단위테스트를 할 때 나머지 객체들을 모킹하도록 지원한다. &lt;/li&gt;
+&lt;li&gt;즉, 서블릿 컨테이너와 상관없이 어느 한 객체에 대한 단위 테스트를 진행하면서 의존하고 있는 다른 객체의 행동을 stub하여 제어할 때 사용된다. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;[출처]&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/guides/gs/testing-web/&quot;&gt;https://spring.io/guides/gs/testing-web/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://elevatingcodingclub.tistory.com/61&quot;&gt;https://elevatingcodingclub.tistory.com/61&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://meetup.toast.com/posts/124&quot;&gt;https://meetup.toast.com/posts/124&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-boot-testing&quot;&gt;https://www.baeldung.com/spring-boot-testing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://junit.org/junit5/docs/current/user-guide/#extensions&quot;&gt;https://junit.org/junit5/docs/current/user-guide/#extensions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pinokio0702.tistory.com/143&quot;&gt;https://pinokio0702.tistory.com/143&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;table-of-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#springboottest&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@SpringBootTest&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#autoconfiguremockmvc&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@AutoConfigureMockMvc&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#webmvctest&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@WebMvcTest&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#extendwithmockitoextensionclass&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@ExtendWith(MockitoExtension.class)&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[Gatsby 테마로 GitHub Blog 만들기]]></title><description><![CDATA[제 블로그의 테마나 Gatsby의 다른 테마를 활용해서 Github Blog…]]></description><link>https://yjksw.github.io/gatsby-github-blog/</link><guid isPermaLink="false">https://yjksw.github.io/gatsby-github-blog/</guid><pubDate>Mon, 05 Jul 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그의 테마나 Gatsby의 다른 테마를 활용해서 Github Blog를 만들고 싶은 분들이 계실텐데요! 이런 분들에게 도움을 드리고자 이 글을 쓰게 되었습니다. 잘 안되는 부분이나 궁금한 점을 댓글로 남겨주면 확인해보고 답변 드리도록 하겠습니다!&lt;/p&gt;
 &lt;h2 id=&quot;1-repository-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-repository-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 repository 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Repository 생성하기&lt;/h2&gt;
