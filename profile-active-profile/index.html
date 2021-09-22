@@ -100,18 +100,12 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="display:flex;flex-direction:column;min-height:100vh"><main><header class="post-header-wrapper"><div class="post-header"><div class="emoji">🖥</div><div class="info"><div class="categories"><a class="category" href="/posts/스프링부트">스프링부트</a></div></div><h1 class="title">웹 개발 시 Profile 전략 - @Profile &amp; @ActiveProfile</h1><div class="info">posted by <strong>코다</strong> · <!-- -->August 19, 2021</div></div></header><div class="post-content-wrapper"><div class="post-content"><div class="markdown"><h2 id="intro" style="position:relative;"><a href="#intro" aria-label="intro permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h2>
-<hr>
-<br>
 <ul>
 <li>프로젝트를 진행하다 보면 상황에 따라 각기 다른 운영환경을 설정해야할때가 있다. 그때마다 properties 설정 파일에 가서 설정되어있는 운영 환경을 바꾸고 돌리기는 어렵다. </li>
 <li>이때 각기 다른 <code class="language-text">Profile</code>를 적용해서 상황에 따라 적합한 <code class="language-text">Profile</code> 설정을 따르도록 할 수 있다. </li>
 </ul>
 <br>
-<br>
-<br>
 <h2 id="yml-파일로-설정-나누기---간단하게" style="position:relative;"><a href="#yml-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EC%84%A4%EC%A0%95-%EB%82%98%EB%88%84%EA%B8%B0---%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C" aria-label="yml 파일로 설정 나누기   간단하게 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>yml 파일로 설정 나누기 - 간단하게</h2>
-<hr>
-<br>
 <ul>
 <li><code class="language-text">yml</code> 또는 <code class="language-text">properties</code>를 통해서 profile 설정을 나눌 수 있다. </li>
 <li>
@@ -194,11 +188,7 @@ void function() {
 </li>
 </ul>
 <br>
-<br>
-<br>
 <h2 id="profile-어노테이션으로-환경별-설정-다르게-하기" style="position:relative;"><a href="#profile-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%ED%99%98%EA%B2%BD%EB%B3%84-%EC%84%A4%EC%A0%95-%EB%8B%A4%EB%A5%B4%EA%B2%8C-%ED%95%98%EA%B8%B0" aria-label="profile 어노테이션으로 환경별 설정 다르게 하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@Profile 어노테이션으로 환경별 설정 다르게 하기</h2>
-<hr>
-<br>
 <ul>
 <li><code class="language-text">@Profile</code>을 사용하면 해당 어노테이션에서 지정한 환경으로 어플리케이션 실행 시 configuration을 설정할 수 있다. </li>
 <li>
@@ -222,8 +212,7 @@ void function() {
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
 <ul>
-<li>OAuthClient 주입할 때 “test” profile 환경이면 <code class="language-text">MockGithubOAuthClient</code>가 주입되고 “prod” profile 환경이면 <code class="language-text">GithubOAuthClient</code>가 주입된다.
-<br></li>
+<li>OAuthClient 주입할 때 “test” profile 환경이면 <code class="language-text">MockGithubOAuthClient</code>가 주입되고 “prod” profile 환경이면 <code class="language-text">GithubOAuthClient</code>가 주입된다. </li>
 </ul>
 </li>
 <li>
@@ -252,90 +241,82 @@ void function() {
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
 <ul>
-<li>중첩 클래스로도 설정할 수 있다. 보기에 가독성이 좋은 것으로 선택하면 된다.
-<br></li>
+<li>중첩 클래스로도 설정할 수 있다. 보기에 가독성이 좋은 것으로 선택하면 된다. </li>
 </ul>
 </li>
 <li>
 <p>인터페이스를 구현하는 구현체 class 위에 설정 </p>
 <ul>
 <li>Bean으로 등록되어 있는 클래스에 적용할 수 있다. (<code class="language-text">@Configuration</code>, <code class="language-text">@Component</code>)</li>
-<li>
-<p>OAuthClient 라는 인터페이스가 있을 때, 해당 인터페이스를 구현하는 구현체를 Profile에 따라 나누어서 적용할 수 있다. </p>
+<li>OAuthClient 라는 인터페이스가 있을 때, 해당 인터페이스를 구현하는 구현체를 Profile에 따라 나누어서 적용할 수 있다. </li>
+</ul>
 <div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@Profile</span><span class="token punctuation">(</span><span class="token string">"!test"</span><span class="token punctuation">)</span> <span class="token comment">//profile이 테스트가 아닐 경우 적용된다. </span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GithubOAuthClient</span> <span class="token keyword">implements</span> <span class="token class-name">OAuthClient</span> <span class="token punctuation">{</span>
 
-<span class="token comment">//... 프로퍼티 생략</span>
+    <span class="token comment">//... 프로퍼티 생략</span>
 
-<span class="token annotation punctuation">@Override</span>
-<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getLoginUrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"https://github.com/login/oauth/authorize"</span>
-            <span class="token operator">+</span> <span class="token string">"?client_id=%s"</span>
-            <span class="token operator">+</span> <span class="token string">"&amp;redirect_uri=%s"</span>
-            <span class="token operator">+</span> <span class="token string">"&amp;scope=%s"</span><span class="token punctuation">,</span>
-        clientId<span class="token punctuation">,</span> redirectUrl<span class="token punctuation">,</span> scope<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getLoginUrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"https://github.com/login/oauth/authorize"</span>
+                <span class="token operator">+</span> <span class="token string">"?client_id=%s"</span>
+                <span class="token operator">+</span> <span class="token string">"&amp;redirect_uri=%s"</span>
+                <span class="token operator">+</span> <span class="token string">"&amp;scope=%s"</span><span class="token punctuation">,</span>
+            clientId<span class="token punctuation">,</span> redirectUrl<span class="token punctuation">,</span> scope<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-<span class="token annotation punctuation">@Override</span>
-<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getAccessToken</span><span class="token punctuation">(</span><span class="token class-name">String</span> code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment">//... 세부 로직 생략 </span>
-<span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getAccessToken</span><span class="token punctuation">(</span><span class="token class-name">String</span> code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//... 세부 로직 생략 </span>
+    <span class="token punctuation">}</span>
 
-<span class="token comment">//... 생략 </span>
+    <span class="token comment">//... 생략 </span>
 <span class="token punctuation">}</span></code></pre></div>
-</li>
-<li>
-<p>위 로직은 Github OAuth관련 로직이므로 사용자 로그인 행위가 없는 테스트에서 실행하기 어렵기 때문에 아래와 같이 Profile이 “test”로 설정 되었을 경우 MockOAuthClient가 주입되도록 설정한다. </p>
+<ul>
+<li>위 로직은 Github OAuth관련 로직이므로 사용자 로그인 행위가 없는 테스트에서 실행하기 어렵기 때문에 아래와 같이 Profile이 “test”로 설정 되었을 경우 MockOAuthClient가 주입되도록 설정한다. </li>
+</ul>
 <div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@Profile</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span> <span class="token comment">//profile이 테스트가 아닐 경우 적용된다. </span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MockGithubOAuthClient</span> <span class="token keyword">implements</span> <span class="token class-name">OAuthClient</span> <span class="token punctuation">{</span>
 
-<span class="token comment">//... 프로퍼티 생략</span>
+    <span class="token comment">//... 프로퍼티 생략</span>
 
-<span class="token annotation punctuation">@Override</span>
-<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getLoginUrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"https://github.com/login/oauth/authorize"</span>
-            <span class="token operator">+</span> <span class="token string">"?client_id=%s"</span>
-            <span class="token operator">+</span> <span class="token string">"&amp;redirect_uri=%s"</span>
-            <span class="token operator">+</span> <span class="token string">"&amp;scope=%s"</span><span class="token punctuation">,</span>
-        clientId<span class="token punctuation">,</span> redirectUrl<span class="token punctuation">,</span> scope<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getLoginUrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"https://github.com/login/oauth/authorize"</span>
+                <span class="token operator">+</span> <span class="token string">"?client_id=%s"</span>
+                <span class="token operator">+</span> <span class="token string">"&amp;redirect_uri=%s"</span>
+                <span class="token operator">+</span> <span class="token string">"&amp;scope=%s"</span><span class="token punctuation">,</span>
+            clientId<span class="token punctuation">,</span> redirectUrl<span class="token punctuation">,</span> scope<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-<span class="token annotation punctuation">@Override</span>
-<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getAccessToken</span><span class="token punctuation">(</span><span class="token class-name">String</span> code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token string">"token"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getAccessToken</span><span class="token punctuation">(</span><span class="token class-name">String</span> code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"token"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-<span class="token comment">//... 생략 </span>
+    <span class="token comment">//... 생략 </span>
 <span class="token punctuation">}</span></code></pre></div>
-</li>
-</ul>
 </li>
 </ol>
 </li>
 </ul>
 <br>
-<br>
-<br>
 <h2 id="activeprofile-어노테이션으로-profile-설정-적용하기" style="position:relative;"><a href="#activeprofile-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-profile-%EC%84%A4%EC%A0%95-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" aria-label="activeprofile 어노테이션으로 profile 설정 적용하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@ActiveProfile 어노테이션으로 profile 설정 적용하기</h2>
-<hr>
-<br>
 <ul>
 <li>이전에 말한대로 <code class="language-text">yml</code> 또는 <code class="language-text">properties</code> 파일에 profile 설정을 나누고 <code class="language-text">application.properties</code> 등의 파일에 profile 을 지정하거나 jar를 실행하면서 환경을 지정할 수 있다. </li>
 <li>하지만 어떤 profile 환경에서도 항상 특정 profile 환경으로 실행되어야 할 때가 있다. 예를 들어서 test 코드 같은 경우는 항상 test profile 환경으로 돌아가야한다. </li>
+<li>이때 해당 클래스 상단에 @ActiveProfile(“test”) 등으로 설정하면 해당 profile이 적용되어 실행된다. </li>
 <li>
-<p>이때 해당 클래스 상단에 @ActiveProfile(“test”) 등으로 설정하면 해당 profile이 적용되어 실행된다. </p>
 <div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@DataJpaTest</span>
 <span class="token annotation punctuation">@ActiveProfiles</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span>
 <span class="token keyword">class</span> <span class="token class-name">OAuthServiceIntegrationTest</span> <span class="token punctuation">{</span>
     <span class="token comment">//...테스트 코드 생략 </span>
 <span class="token punctuation">}</span></code></pre></div>
-<br>
-<br>
-<br>
 </li>
 </ul>
+<br>
+<br>
 <p><strong>[출처]</strong></p>
 <ul>
 <li><a href="http://wonwoo.ml/index.php/post/1933">http://wonwoo.ml/index.php/post/1933</a></li>
