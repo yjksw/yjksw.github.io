@@ -8,19 +8,13 @@ categories: 스프링부트
 ---
 
 ## Intro
----
-<br>
 
 - 프로젝트를 진행하다 보면 상황에 따라 각기 다른 운영환경을 설정해야할때가 있다. 그때마다 properties 설정 파일에 가서 설정되어있는 운영 환경을 바꾸고 돌리기는 어렵다. 
 - 이때 각기 다른 `Profile`를 적용해서 상황에 따라 적합한 `Profile` 설정을 따르도록 할 수 있다. 
 
 <br>
-<br>
-<br>
 
 ## yml 파일로 설정 나누기 - 간단하게 
----
-<br>
 
 - `yml` 또는 `properties`를 통해서 profile 설정을 나눌 수 있다. 
 - 각각 원하는 환경에 대한 설정정보를 `yml`, `properties`에 기재한 후 `application-{profile-name}.yml` 또는 `application-{profile-name}.properties`로 지정한다. 
@@ -37,8 +31,11 @@ categories: 스프링부트
 <br>
 
 ### 사용 예시
+
 - 본인은 프로젝트 진행 시 다음과 같이 local, prod, test로 환경을 나누었다. 
+
 1. application-local.yml
+
     ```yml
     spring:
     datasource:
@@ -56,7 +53,9 @@ categories: 스프링부트
         hibernate:
         ddl-auto: none
     ```
+
 2. application-prod.yml
+
     ```yml
     spring:
         datasource:
@@ -77,6 +76,7 @@ categories: 스프링부트
     ```
 
 3. application-test.yml
+
     ```yml
     spring:
     datasource:
@@ -100,16 +100,14 @@ categories: 스프링부트
    -  `spring.profiles.include:` 로 포함할 다른 profile 설정을 지정할 수 있다. (주로 공통으로 적용될만한 보안 관련 profile, aws 관련 설정 등을 include로 포함한다.)
 
 <br>
-<br>
-<br>
 
 ## @Profile 어노테이션으로 환경별 설정 다르게 하기 
----
-<br>
 
 - `@Profile`을 사용하면 해당 어노테이션에서 지정한 환경으로 어플리케이션 실행 시 configuration을 설정할 수 있다. 
 - `@Profile` 어노테이션은 다음과 같이 3가지 방법으로 (더 있을 수도 있다) 사용할 수 있다. 
+
     1. @Configuration 클래스 안에 method 위에 
+        
         ```java
         @Configuration
         public class InfrastructureConfiguration {
@@ -127,9 +125,11 @@ categories: 스프링부트
             }
         }
         ```
+
         - OAuthClient 주입할 때 "test" profile 환경이면 `MockGithubOAuthClient`가 주입되고 "prod" profile 환경이면 `GithubOAuthClient`가 주입된다. 
-    <br>
+  
     2. @Configuration 클래스 안에 static class 위에
+        
         ```java
         @Configuration
         public class InfrastructureConfiguration {
@@ -155,11 +155,13 @@ categories: 스프링부트
             }
         }
         ```
+        
         - 중첩 클래스로도 설정할 수 있다. 보기에 가독성이 좋은 것으로 선택하면 된다. 
-    <br>
+    
     3. 인터페이스를 구현하는 구현체 class 위에 설정 
         - Bean으로 등록되어 있는 클래스에 적용할 수 있다. (`@Configuration`, `@Component`)
         - OAuthClient 라는 인터페이스가 있을 때, 해당 인터페이스를 구현하는 구현체를 Profile에 따라 나누어서 적용할 수 있다. 
+        
         ```java
         @Component
         @Profile("!test") //profile이 테스트가 아닐 경우 적용된다. 
@@ -184,7 +186,9 @@ categories: 스프링부트
             //... 생략 
         }
         ```
+        
         - 위 로직은 Github OAuth관련 로직이므로 사용자 로그인 행위가 없는 테스트에서 실행하기 어렵기 때문에 아래와 같이 Profile이 "test"로 설정 되었을 경우 MockOAuthClient가 주입되도록 설정한다. 
+        
         ```java
         @Component
         @Profile("test") //profile이 테스트가 아닐 경우 적용된다. 
@@ -211,16 +215,13 @@ categories: 스프링부트
         ```
 
 <br>
-<br>
-<br>
 
 ## @ActiveProfile 어노테이션으로 profile 설정 적용하기 
----
-<br>
 
 - 이전에 말한대로 `yml` 또는 `properties` 파일에 profile 설정을 나누고 `application.properties` 등의 파일에 profile 을 지정하거나 jar를 실행하면서 환경을 지정할 수 있다. 
 - 하지만 어떤 profile 환경에서도 항상 특정 profile 환경으로 실행되어야 할 때가 있다. 예를 들어서 test 코드 같은 경우는 항상 test profile 환경으로 돌아가야한다. 
 - 이때 해당 클래스 상단에 @ActiveProfile("test") 등으로 설정하면 해당 profile이 적용되어 실행된다. 
+- 
     ```java
     @DataJpaTest
     @ActiveProfiles("test")
@@ -228,7 +229,7 @@ categories: 스프링부트
         //...테스트 코드 생략 
     }
     ```
-<br>
+
 <br>
 <br>
 

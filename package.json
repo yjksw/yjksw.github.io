@@ -30,7 +30,7 @@
     "gatsby-remark-prismjs": "^4.0.0",
     "gatsby-remark-smartypants": "^3.0.0",
     "gatsby-remark-table-of-contents": "^1.0.0",
-    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-source-filesystem": "^2.11.1",
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-remark": "^2.16.1",
     "gatsby-transformer-sharp": "^2.12.0",
