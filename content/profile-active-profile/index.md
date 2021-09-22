@@ -4,7 +4,7 @@ title: 웹 개발 시 Profile 전략 - @Profile & @ActiveProfile
 date: '2021-08-19 23:00:00'
 author: 코다
 tags: 스프링부트
-categories: 스트링부트
+categories: 스프링부트
 ---
 
 ## Intro

@@ -4,7 +4,7 @@ title: Springboot 언제 어떤 테스트를 사용할까
 date: '2021-08-17 23:00:00'
 author: 코다
 tags: 스프링부트 테스트
-categories: 스트링부트 테스트
+categories: 스프링부트 테스트
 ---
 
 ## Intro
