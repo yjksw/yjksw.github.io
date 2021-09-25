@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: metaConfig,
 
   plugins: [
-    `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-dark-mode`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
