@@ -37,6 +37,7 @@ categories: 자바
     ```
 
   - 상황2: 사과를 무게로 필터링하는 요구사항을 구현한다. 
+
     ```java
     public static List<Apple> filterByWeight(List<Apple> inventory, int weight) {
         List<Apple> result = new ArrayList<>();
