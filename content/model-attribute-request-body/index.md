@@ -1,5 +1,5 @@
 ---
-emoji: ✊
+emoji: 🖥
 title: "@ModelAttribute vs. @RequestBody"
 date: '2021-03-25 23:00:00'
 author: 코다

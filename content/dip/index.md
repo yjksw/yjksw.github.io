@@ -1,5 +1,5 @@
 ---
-emoji: 🖥
+emoji: 🍀
 title: DIP 의존관계 역전의 원칙
 date: '2021-03-13 23:00:00'
 author: 코다
