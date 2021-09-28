@@ -99,7 +99,7 @@ void function() {
 
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
-    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="display:flex;flex-direction:column;min-height:100vh"><main><header class="post-header-wrapper"><div class="post-header"><div class="emoji">🖥</div><div class="info"><div class="categories"><a class="category" href="/posts/스프링">스프링</a><a class="category" href="/posts/웹">웹</a></div></div><h1 class="title">DIP 의존관계 역전의 원칙</h1><div class="info">posted by <strong>코다</strong> · <!-- -->March 13, 2021</div></div></header><div class="post-content-wrapper"><div class="post-content"><div class="markdown"><p>스프링 강의 중 DAO vs. Repository의 차이점에 대해서 논의하다가 다음과 같은 표현이 나왔다. </p>
+    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="display:flex;flex-direction:column;min-height:100vh"><main><header class="post-header-wrapper"><div class="post-header"><div class="emoji">🍀</div><div class="info"><div class="categories"><a class="category" href="/posts/스프링">스프링</a><a class="category" href="/posts/웹">웹</a></div></div><h1 class="title">DIP 의존관계 역전의 원칙</h1><div class="info">posted by <strong>코다</strong> · <!-- -->March 13, 2021</div></div></header><div class="post-content-wrapper"><div class="post-content"><div class="markdown"><p>스프링 강의 중 DAO vs. Repository의 차이점에 대해서 논의하다가 다음과 같은 표현이 나왔다. </p>
 <ul>
 <li>Repository의 추상 인터페이스는 Domain Layer에 속하며 Domain 객체들을 관리하고 생애주기를 같이한다. 그 구현체인 SimpleJpaRepository는 Infrastructure에 속한다. 추상화된 repository 인터페이스를 사용하면서 추상에 의존하고 구체에 의존하지 않도록 구성(DIP) 하여 유연성 있는 시스템을 구성한다.</li>
 </ul>
