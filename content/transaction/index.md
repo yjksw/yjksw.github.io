@@ -1,5 +1,5 @@
 ---
-emoji: 🚊
+emoji: 💾
 title: Transaction의 동작제어
 date: '2021-03-09 23:00:00'
 author: 코다
