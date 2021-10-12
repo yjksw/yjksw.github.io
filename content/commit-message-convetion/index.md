@@ -1,7 +1,7 @@
 ---
 emoji: 👀
 title: "[GitHub] Commit Message Convetion"
-date: '2021-11-29 23:00:00'
+date: '2020-11-29 23:00:00'
 author: 코다
 tags: 기타
 categories: 기타
