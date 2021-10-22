@@ -3,8 +3,8 @@ emoji: 🚀
 title: JPA 에서 별칭을 쓰지 않는 이유 (하지만 쓴 이유)
 date: '2021-10-06 23:00:00'
 author: 코다
-tags: JPA
-categories: JPA
+tags: JPA 프로젝트
+categories: JPA 프로젝트 
 ---
 
 ## Intro

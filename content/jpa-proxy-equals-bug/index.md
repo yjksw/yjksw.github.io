@@ -3,8 +3,8 @@ emoji: 🚀
 title: JPA 프록시 관련 버그 경험기
 date: '2021-08-26 23:00:00'
 author: 코다
-tags: JPA
-categories: JPA
+tags: JPA 프로젝트
+categories: JPA 프로젝트
 ---
 
 ## INTRO
