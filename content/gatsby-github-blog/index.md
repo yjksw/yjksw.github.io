@@ -112,8 +112,21 @@ npm run deploy
 npm run deploy
 ```
 
-제 블로그 테마를 수정하는 방법이 궁금하시다면 아래 링크를 참고해주세요!
+<br/>
+
+## ⭐️ 이 블로그 테마를 이용하고 싶으시다면!
+
+마지막으로 제 블로그 테마를 활용하고 싶으시다면 아래 링크를 참고해주세요!
 [https://www.zoomkoding.com/gatsby-starter-zoomkoding-introduction](https://www.zoomkoding.com/gatsby-starter-zoomkoding-introduction)
+
+궁금하신 점이 있으시다면 [이슈](https://github.com/zoomKoding/zoomkoding-gatsby-blog/issues/new)로 남겨주시면 최대한 빠르게 답변 드리도록 하겠습니다!🙋‍♂️
+
+> 🤔 혹시 특정 기능이 없어서 테마 사용을 망설이시거나 제안하고 싶으신 기능이 있으시다면,  
+> 👉 [여기](https://github.com/zoomKoding/zoomkoding-gatsby-blog/issues/40)에 댓글 남겨주세요! 적극적으로 반영하겠습니다 :)
+
+<br/>
+
+**위 과정을 따라하시면서 궁금하신 점이 있다면 아래 `댓글`로 남겨주세요!👇**
 
 ```toc
 
