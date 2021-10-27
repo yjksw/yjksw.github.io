@@ -7,7 +7,7 @@ tags: 웹 성능테스트
 categories: 웹 성능테스트
 ---
 
-> 이 글은 다음 [링크]([https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55))를 번역하며 공부한 글입니다 🙌   
+> 이 글은 다음 [링크](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)를 번역하며 공부한 글입니다 🙌   
 
 <br>
 
@@ -76,7 +76,7 @@ procs ---------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 - wait I/O에 특정 값이 유지된다면 disk 병목 현상이 있다고 볼 수 있다. 이 경우는 작업이 disk I/O 작업을 기다리느라 CPU 가 유휴 상태에 있는 때이다.
 - System time은 I/O 작업을 하기 위해서 필수이다. high system time 평균은 20% 이상이며 이런 수치를 보이면 커널이 I/O 작업을 비효율적으로 처리하고 있다고 볼 수 있다.
 - CPU 사용률(user-level)은 평균 90% 이상일 수도 있으나 이것이 꼭 문제를 뜻하는 것은 아니다. CPU에 부하가 걸리고 있는지는 "r" 칼럼을 통해서 판단해야한다.
-- [여기서]([https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ggaibi1004&logNo=221398356656](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ggaibi1004&logNo=221398356656)) 각 칼럼에 대한 자세한 설명을 확인할 수 있다. 개인적으로 매우 유용하게 참고하고 있다. [여기도..]([https://im-recording-of-sw-studies.tistory.com/30](https://im-recording-of-sw-studies.tistory.com/30))
+- [여기서](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ggaibi1004&logNo=221398356656) 각 칼럼에 대한 자세한 설명을 확인할 수 있다. 개인적으로 매우 유용하게 참고하고 있다. [여기도..](https://im-recording-of-sw-studies.tistory.com/30)
 
 <br>
 
@@ -189,8 +189,8 @@ Swap:            0          0          0
 - `/+ buffers/cache` 은 `free` 수치에 대해서 더 명확하게 알려준다.
     - 운영체제의 물리 메모리는 그 빈 공간을 캐싱을 하기 위해서 사용한다. 하지만 프로세스가 필요로 하다면 곧바로 회수하여 필요한 프로세스에게 할당한다. 따라서 엄밀히 말하먄 캐시 데이터가 차지하고 있는 메모리의 용량도 free에 포함되어야 마땅하다.
     - 이 수치의 free는 캐시 데이터 메모리 용량까지 포함한 수치이다.
-    - 이 부분에 대한 많은 혼란이 있기에 관련 [사이트]([https://www.linuxatemyram.com/](https://www.linuxatemyram.com/))가 따로 있을 정도이다. (ㅋㅋㅋㅋ)
-- 리눅스에서 [ZFS]([https://itsfoss.com/what-is-zfs/](https://itsfoss.com/what-is-zfs/)) 라는 향상된 file system을 사용하고 있다면 위 수치가 더 혼란스러울 수 있다. ZFS는 별도의 캐시가 존재하며 `free -m` 에 제대로 반영이 되지 않기 때문이다.
+    - 이 부분에 대한 많은 혼란이 있기에 관련 [사이트](https://www.linuxatemyram.com/)가 따로 있을 정도이다. (ㅋㅋㅋㅋ)
+- 리눅스에서 [ZFS](https://itsfoss.com/what-is-zfs/) 라는 향상된 file system을 사용하고 있다면 위 수치가 더 혼란스러울 수 있다. ZFS는 별도의 캐시가 존재하며 `free -m` 에 제대로 반영이 되지 않기 때문이다.
     - 시스템이 가용 가능한 메모리 공간이 적어보이지만 ZFS 캐시에 의해 가용 가능한 메모리가 존재할 수도 있다는 것을 참고하자.
 
 <br>
@@ -249,7 +249,7 @@ Linux 3.13.0-49-generic (titanclusters-xxxxx)  07/14/2015    _x86_64_    (32 CPU
         - 초당 TCP 재전송량
 - active와 passive 수는 서버 부하를 대략적으로 산출할 수 있는 좋은 수치이다.
     - 새롭게 들어온 passive 커넥션 개수와 내보내지고 있는 active 커넥션 개수
-    - active를 outbound, passive을 inbound 수치로 판단할 수 있으나 정확히 그렇지만은 않다. ([localhost](http://localhost)와 localhost connection의 차이를 고려해보라) [링크]([https://velog.io/@lky9303/127.0.0.1-과-localhost의-차이](https://velog.io/@lky9303/127.0.0.1-%EA%B3%BC-localhost%EC%9D%98-%EC%B0%A8%EC%9D%B4))
+    - active를 outbound, passive을 inbound 수치로 판단할 수 있으나 정확히 그렇지만은 않다. ([localhost](http://localhost)와 localhost connection의 차이를 고려해보라)
 - 네트워크 재전송량은 네트워크 혹은 서버 이슈 일 수 있다.
     - 네트워크 문제라면 네트워크가 안정적이지 않은 네트워크 일 수 있다.
     - 혹은 서버 과부화로 인해 패킷이 유실되는 문제일 수도 있다.
@@ -300,7 +300,7 @@ KiB Swap:        0 total,        0 used,        0 free.   554208 cached Mem
 
 **[참고자료]**
 
-- [[https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)]([https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55))
+- [https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)
 
 
 ```toc
