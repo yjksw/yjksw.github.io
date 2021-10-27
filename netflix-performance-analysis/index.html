@@ -100,7 +100,7 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="display:flex;flex-direction:column;min-height:100vh"><main><header class="post-header-wrapper"><div class="post-header"><div class="emoji">📈</div><div class="info"><div class="categories"><a class="category" href="/posts/웹">웹</a><a class="category" href="/posts/성능테스트">성능테스트</a></div></div><h1 class="title">넷플릭스에서 60000ms 만에 리눅스 서버 성능을 진단하는 방법 10가지</h1><div class="info">posted by <strong>코다</strong> · <!-- -->October 15, 2021</div></div></header><div class="post-content-wrapper"><div class="post-content"><div class="markdown"><blockquote>
-<p>이 글은 다음 <a href="%5Bhttps://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55%5D(https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)">링크</a>를 번역하며 공부한 글입니다 🙌   </p>
+<p>이 글은 다음 <a href="https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55">링크</a>를 번역하며 공부한 글입니다 🙌   </p>
 </blockquote>
 <br>
 <h2 id="-intro" style="position:relative;"><a href="#-intro" aria-label=" intro permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>💡 Intro</h2>
@@ -159,7 +159,7 @@ void function() {
 <li>wait I/O에 특정 값이 유지된다면 disk 병목 현상이 있다고 볼 수 있다. 이 경우는 작업이 disk I/O 작업을 기다리느라 CPU 가 유휴 상태에 있는 때이다.</li>
 <li>System time은 I/O 작업을 하기 위해서 필수이다. high system time 평균은 20% 이상이며 이런 수치를 보이면 커널이 I/O 작업을 비효율적으로 처리하고 있다고 볼 수 있다.</li>
 <li>CPU 사용률(user-level)은 평균 90% 이상일 수도 있으나 이것이 꼭 문제를 뜻하는 것은 아니다. CPU에 부하가 걸리고 있는지는 “r” 칼럼을 통해서 판단해야한다.</li>
-<li><a href="%5Bhttps://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ggaibi1004&#x26;logNo=221398356656%5D(https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ggaibi1004&#x26;logNo=221398356656)">여기서</a> 각 칼럼에 대한 자세한 설명을 확인할 수 있다. 개인적으로 매우 유용하게 참고하고 있다. <a href="%5Bhttps://im-recording-of-sw-studies.tistory.com/30%5D(https://im-recording-of-sw-studies.tistory.com/30)">여기도..</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ggaibi1004&#x26;logNo=221398356656">여기서</a> 각 칼럼에 대한 자세한 설명을 확인할 수 있다. 개인적으로 매우 유용하게 참고하고 있다. <a href="https://im-recording-of-sw-studies.tistory.com/30">여기도..</a></li>
 </ul>
 <br>
 <h2 id="4-mpstat--p-all-1" style="position:relative;"><a href="#4-mpstat--p-all-1" aria-label="4 mpstat  p all 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. mpstat -P ALL 1</h2>
@@ -284,11 +284,11 @@ Swap:            <span class="token number">0</span>          <span class="token
 <ul>
 <li>운영체제의 물리 메모리는 그 빈 공간을 캐싱을 하기 위해서 사용한다. 하지만 프로세스가 필요로 하다면 곧바로 회수하여 필요한 프로세스에게 할당한다. 따라서 엄밀히 말하먄 캐시 데이터가 차지하고 있는 메모리의 용량도 free에 포함되어야 마땅하다.</li>
 <li>이 수치의 free는 캐시 데이터 메모리 용량까지 포함한 수치이다.</li>
-<li>이 부분에 대한 많은 혼란이 있기에 관련 <a href="%5Bhttps://www.linuxatemyram.com/%5D(https://www.linuxatemyram.com/)">사이트</a>가 따로 있을 정도이다. (ㅋㅋㅋㅋ)</li>
+<li>이 부분에 대한 많은 혼란이 있기에 관련 <a href="https://www.linuxatemyram.com/">사이트</a>가 따로 있을 정도이다. (ㅋㅋㅋㅋ)</li>
 </ul>
 </li>
 <li>
-<p>리눅스에서 <a href="%5Bhttps://itsfoss.com/what-is-zfs/%5D(https://itsfoss.com/what-is-zfs/)">ZFS</a> 라는 향상된 file system을 사용하고 있다면 위 수치가 더 혼란스러울 수 있다. ZFS는 별도의 캐시가 존재하며 <code class="language-text">free -m</code> 에 제대로 반영이 되지 않기 때문이다.</p>
+<p>리눅스에서 <a href="https://itsfoss.com/what-is-zfs/">ZFS</a> 라는 향상된 file system을 사용하고 있다면 위 수치가 더 혼란스러울 수 있다. ZFS는 별도의 캐시가 존재하며 <code class="language-text">free -m</code> 에 제대로 반영이 되지 않기 때문이다.</p>
 <ul>
 <li>시스템이 가용 가능한 메모리 공간이 적어보이지만 ZFS 캐시에 의해 가용 가능한 메모리가 존재할 수도 있다는 것을 참고하자.</li>
 </ul>
@@ -364,7 +364,7 @@ Linux <span class="token number">3.13</span>.0-49-generic <span class="token pun
 <p>active와 passive 수는 서버 부하를 대략적으로 산출할 수 있는 좋은 수치이다.</p>
 <ul>
 <li>새롭게 들어온 passive 커넥션 개수와 내보내지고 있는 active 커넥션 개수</li>
-<li>active를 outbound, passive을 inbound 수치로 판단할 수 있으나 정확히 그렇지만은 않다. (<a href="http://localhost">localhost</a>와 localhost connection의 차이를 고려해보라) <a href="%5Bhttps://velog.io/@lky9303/127.0.0.1-%EA%B3%BC-localhost%EC%9D%98-%EC%B0%A8%EC%9D%B4%5D(https://velog.io/@lky9303/127.0.0.1-%EA%B3%BC-localhost%EC%9D%98-%EC%B0%A8%EC%9D%B4)">링크</a></li>
+<li>active를 outbound, passive을 inbound 수치로 판단할 수 있으나 정확히 그렇지만은 않다. (<a href="http://localhost">localhost</a>와 localhost connection의 차이를 고려해보라)</li>
 </ul>
 </li>
 <li>
@@ -415,7 +415,7 @@ KiB Swap:        <span class="token number">0</span> total,        <span class="
 <br>
 <p><strong>[참고자료]</strong></p>
 <ul>
-<li><a href="%5Bhttps://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55%5D(https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)">[https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55)</a></li>
+<li><a href="https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55">https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55</a></li>
 </ul>
 <div class="table-of-contents">
 <ul>
