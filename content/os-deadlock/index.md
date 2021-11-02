@@ -164,8 +164,8 @@ categories: 운영체제
 
 **[참고링크]**
 
-- [[https://kpuls.tistory.com/61](https://kpuls.tistory.com/61)**](**[https://kpuls.tistory.com/61](https://kpuls.tistory.com/61)**)**
-- [[https://chanhuiseok.github.io/posts/cs-2/](https://chanhuiseok.github.io/posts/cs-2/)]([https://chanhuiseok.github.io/posts/cs-2/](https://chanhuiseok.github.io/posts/cs-2/))
+- [https://kpuls.tistory.com/61](https://kpuls.tistory.com/61)
+- [https://chanhuiseok.github.io/posts/cs-2/](https://chanhuiseok.github.io/posts/cs-2/)
 
 ```toc
 ``` 
