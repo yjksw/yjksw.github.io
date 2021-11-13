@@ -113,7 +113,7 @@ categories: 네트워크 책
 - 서브넷 - 여러 PC가 하나의 허브에 연결되어 있는 단위
 - **여러 서브넷을 라우터로 연결하여 네트워크 전체를 구성한다.**
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42672e20-86f7-4627-b0a3-49302d2675c0/Untitled.png)
+    <p align="center"><img width="85%" src="https://user-images.githubusercontent.com/63405904/141642594-d563a745-1eb7-4378-8b1e-2d94c45a4545.png"></p>
     
 - 네트워크 주소를 00동 00번지의 단위로 표현할 수 있다.
     - 00동 → 서브넷에 할당된 네트워크 번호
