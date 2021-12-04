@@ -1,6 +1,6 @@
 ---
 emoji: ✊
-title: "자바 컬렉션 프레임워크 파헤치기 1 - 기본 & ArrayList"
+title: "JCF 파헤치기 1 - 기본 & ArrayList"
 date: '2021-12-03 23:00:00'
 author: 코다
 tags: 자바
