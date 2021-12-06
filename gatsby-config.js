@@ -30,7 +30,7 @@ module.exports = {
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
+            sitemap: 'https://yjksw.github.io/sitemap.xml',
             host: null,
           },
           'deploy-preview': {
