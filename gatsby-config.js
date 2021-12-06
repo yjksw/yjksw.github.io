@@ -31,12 +31,12 @@ module.exports = {
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
             sitemap: 'https://yjksw.github.io/sitemap.xml',
-            host: null,
+            host: 'https://yjksw.github.io',
           },
           'deploy-preview': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null,
+            sitemap: 'https://yjksw.github.io/sitemap.xml',
+            host: 'https://yjksw.github.io',
           },
         },
       },
