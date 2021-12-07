@@ -24,6 +24,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         resolveEnv: () => NETLIFY_ENV,
+	sitemap: 'https://yjksw.github.io/sitemap.xml',
         env: {
           production: {
             policy: [{ userAgent: '*' }],
