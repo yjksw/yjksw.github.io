@@ -78,17 +78,18 @@ module.exports = {
       options: {
         resolveEnv: () => NETLIFY_ENV,
 	sitemap: 'https://yjksw.github.io/sitemap.xml',
+  policy: [{ userAgent: '*', allow: ['/'] }],
         env: {
           production: {
-            policy: [{ userAgent: '*' }],
+            policy: [{ userAgent: '*', allow: ['/'] }],
           },
           'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+            policy: [{ userAgent: '*', allow: ['/'] }],
             sitemap: 'https://yjksw.github.io/sitemap.xml',
             host: 'https://yjksw.github.io',
           },
           'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+            policy: [{ userAgent: '*', allow: ['/'] }],
             sitemap: 'https://yjksw.github.io/sitemap.xml',
             host: 'https://yjksw.github.io',
           },
