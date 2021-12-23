@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: metaConfig,
 
   plugins: [
-{
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
@@ -60,6 +60,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `G-0MLHCKSMVJ`,
+        // Puts tracking script in the head instead of the body
+        head: true,
+        // enable ip anonymization
+        anonymize: true,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
@@ -96,14 +107,14 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: metaConfig.ga,
-        head: true,
-        anonymize: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: metaConfig.ga,
+    //     head: true,
+    //     anonymize: true,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
