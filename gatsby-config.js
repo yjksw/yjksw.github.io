@@ -88,7 +88,8 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         resolveEnv: () => NETLIFY_ENV,
-	sitemap: 'https://yjksw.github.io/sitemap.xml',
+  sitemap: 'https://yjksw.github.io/sitemap-pages.xml', 
+	// sitemap: 'https://yjksw.github.io/sitemap.xml', 
   policy: [{ userAgent: '*', allow: ['/'] }],
         env: {
           production: {
@@ -96,12 +97,14 @@ module.exports = {
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', allow: ['/'] }],
-            sitemap: 'https://yjksw.github.io/sitemap.xml',
+            sitemap: 'https://yjksw.github.io/sitemap-pages.xml', 
+            // sitemap: 'https://yjksw.github.io/sitemap.xml',
             host: 'https://yjksw.github.io',
           },
           'deploy-preview': {
             policy: [{ userAgent: '*', allow: ['/'] }],
-            sitemap: 'https://yjksw.github.io/sitemap.xml',
+            // sitemap: 'https://yjksw.github.io/sitemap.xml',
+            sitemap: 'https://yjksw.github.io/sitemap-pages.xml', 
             host: 'https://yjksw.github.io',
           },
         },
