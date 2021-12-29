@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://yjksw.github.io/sitemap.xml
+Sitemap: https://yjksw.github.io/sitemap-pages.xml
 Host: https://yjksw.github.io
