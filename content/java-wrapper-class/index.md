@@ -106,7 +106,7 @@ public static int getSquareValue(int i){
 <br>
 <br>
 
-**<small>[참고 자료]: https://www.baeldung.com/java-wrapper-classes, https://www.geeksforgeeks.org/wrapper-classes-java/</small>**
+**<small>[참고 자료]: https://www.baeldung.com/java-wrapper-classes, https://www.geeksforgeeks.org/wrapper-classes-java/, https://www.scaler.com/topics/java/wrapper-classes-in-java/</small>**
 
 ```toc
 ```
